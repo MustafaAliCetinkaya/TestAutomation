@@ -9,6 +9,16 @@ public class SeleniumTest {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
+        //This line will maximize the browser size
+        driver.manage().window().maximize();
         driver.get("https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/index.htm");
+
+     /*   WebDriverManager.safaridriver().setup();
+        WebDriver safari=new SafariDriver();
+        safari.get("https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/0.htm");
+
+        //This line will maximize the browser size
+        safari.manage().window().maximize();*/
+
     }
 }

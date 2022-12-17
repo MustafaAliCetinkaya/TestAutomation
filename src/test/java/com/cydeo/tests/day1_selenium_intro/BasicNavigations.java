@@ -25,7 +25,7 @@ public class BasicNavigations {
         driver.navigate().back();
         //Stop code execution for 3 seconds
         Thread.sleep(3000);
-        // this will close the currently opened window
+        // this will close the currently opened window by driver
         driver.close();
 
     }

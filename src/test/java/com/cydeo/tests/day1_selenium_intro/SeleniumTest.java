@@ -14,8 +14,10 @@ public class SeleniumTest {
         driver.get("https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/index.htm");
         //Stop code execution for 3 seconds
         Thread.sleep(3000);
-        // this will close all of the opened windows by driver
-        driver.quit();
+        /* this will close all of the opened windows by driver
+        driver.quit();*/
+        // this will close the currently opened window by driver
+        driver.close();
 
      /*   WebDriverManager.safaridriver().setup();
         WebDriver safari=new SafariDriver();

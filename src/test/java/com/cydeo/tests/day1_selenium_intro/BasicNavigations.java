@@ -11,6 +11,8 @@ public class BasicNavigations {
         driver.manage().window().maximize();//Makes the full screen
         //get and navigate are have same function but navigate has more options/features
 
+        Thread.sleep(3000);
+        // this will close the currently opened window by driver
         driver.get("https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/index.htm");
         //Stop code execution for 3 seconds
         Thread.sleep(3000);

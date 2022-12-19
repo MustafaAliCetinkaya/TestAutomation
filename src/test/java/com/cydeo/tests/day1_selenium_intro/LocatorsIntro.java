@@ -47,6 +47,7 @@ public class LocatorsIntro {
             Thread.sleep(2000);
             String currentUrl = driver.getCurrentUrl();
             System.out.println("currentUrl = " + currentUrl);
+            System.out.println(driver.getTitle());
 
             String expected_Url = "https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/ict.htm";
             if (expected_Url.equals(currentUrl)) {
@@ -62,9 +63,10 @@ public class LocatorsIntro {
             Thread.sleep(2000);
             String current_Url = driver.getCurrentUrl();
             System.out.println("current_Url = " + current_Url);
+            System.out.println(driver.getTitle());
 
             String wantedUrl = "https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/stlr.htm";
-            if (wantedUrl.equals(currentUrl)) {
+            if (wantedUrl.equals(current_Url)) {
                 System.out.println("URL verification PASSED!");
             } else {
                 System.out.println("URL verification FAILED!!!");

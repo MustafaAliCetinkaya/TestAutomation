@@ -18,7 +18,7 @@ public class LocatorsIntro {
 
             driver.navigate().to("https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/index.htm");
             Thread.sleep(2000);
-            System.out.println(driver.getTitle()+" / "+driver.getCurrentUrl());
+            System.out.println(driver.getTitle() + " / " + driver.getCurrentUrl());
 
             WebElement hayatınMatematikLisanı = driver.findElement(By.linkText("Hayatın Matematik Lisanı"));
             hayatınMatematikLisanı.click();
@@ -69,7 +69,7 @@ public class LocatorsIntro {
             } else {
                 System.out.println("URL verification FAILED!!!");
             }
-
+            driver.close();
         }
         driver.quit();
     }

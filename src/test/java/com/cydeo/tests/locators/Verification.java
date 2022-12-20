@@ -1,4 +1,4 @@
-package com.cydeo.tests.seleniumIntro;
+package com.cydeo.tests.locators;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

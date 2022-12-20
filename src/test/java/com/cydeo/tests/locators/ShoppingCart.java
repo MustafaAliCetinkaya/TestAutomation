@@ -6,6 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,9 +23,19 @@ public class ShoppingCart {
         WebElement serachBox = driver.findElement(By.name("q"));
         serachBox.sendKeys("sucuk" + Keys.ENTER);
         driver.findElement(By.xpath("/html/body/div[6]/div[4]/div[2]/div[1]/div/div[2]/div[3]/div/div[2]/div[1]/div/div[1]/div/div[2]/div[3]/div[2]/button")).click();
-        driver.navigate().refresh();
-        Thread.sleep(5000);
-        driver.findElement(By.linkText("alışveriş sepetinize"));
+
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("alışveriş sepetinize")));
+
+        driver.findElement(By.linkText("alışveriş sepetinize")).click();
+
+        for (int i = 0; i < 8; i++) {
+            driver.findElement(By.xpath("//b[.='+']")).click();
+
+        }
+
+        driver.findElement(By.xpath("//button[.='Sepeti Güncelle']")).click();
+        driver.findElement(By.xpath("//button[.='tamam']")).click();
 
     }
 }

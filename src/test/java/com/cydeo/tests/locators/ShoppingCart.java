@@ -1,7 +1,10 @@
 package com.cydeo.tests.locators;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -18,6 +21,9 @@ public class ShoppingCart {
         WebElement serachBox = driver.findElement(By.name("q"));
         serachBox.sendKeys("sucuk" + Keys.ENTER);
         driver.findElement(By.xpath("/html/body/div[6]/div[4]/div[2]/div[1]/div/div[2]/div[3]/div/div[2]/div[1]/div/div[1]/div/div[2]/div[3]/div[2]/button")).click();
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+        driver.findElement(By.linkText("alışveriş sepetinize"));
 
     }
 }

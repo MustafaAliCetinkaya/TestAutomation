@@ -40,6 +40,6 @@ public class LinkText {
         for (String each : getTitle) {
             System.out.println("Page URL = " + each.substring(each.indexOf("/")+2));
         }
-
+        driver.quit();
     }
 }

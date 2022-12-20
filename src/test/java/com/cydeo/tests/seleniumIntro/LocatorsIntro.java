@@ -20,8 +20,8 @@ public class LocatorsIntro {
             Thread.sleep(2000);
             System.out.println(driver.getTitle() + " / " + driver.getCurrentUrl());
 
-            WebElement hayatınMatematikLisanı = driver.findElement(By.linkText("Hayatın Matematik Lisanı"));
-            hayatınMatematikLisanı.click();
+            WebElement hayatinMatematikLisani = driver.findElement(By.linkText("Hayatın Matematik Lisanı"));
+            hayatinMatematikLisani.click();
             Thread.sleep(2000);
             //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 

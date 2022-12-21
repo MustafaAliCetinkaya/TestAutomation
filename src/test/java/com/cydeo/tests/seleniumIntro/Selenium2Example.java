@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.concurrent.TimeUnit;
 
 public class Selenium2Example {
@@ -35,6 +36,26 @@ public class Selenium2Example {
 
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
+
+        driver.findElement(By.xpath("//h3[.='Selenium']")).click();
+
+        System.out.println("Page title is: " + driver.getTitle());
+
+        System.out.println("Page header is: " + driver.getTitle());
+        System.out.println("Page URL is: " + driver.getCurrentUrl());
+        //System.out.println("Page motto is: " + driver.findElement(By.xpath("//p[.='What you do with that power is entirely up to you.']")).getText());
+        WebElement motto = driver.findElement(By.xpath("/html/body/div/main/section[1]/div/div/div/div/p"));
+        System.out.printf("Page motto is: ", motto.getText());
+        //Verify header text is as expected:
+        WebElement headerText = driver.findElement(By.tagName("h1"));
+        String expectedHeaderText = "Selenium automates browsers. That's it!";
+        String actualHeaderText = headerText.getText();
+
+        if (actualHeaderText.equals(expectedHeaderText)) {
+            System.out.println("Selenium header text verification PASSED!");
+        } else {
+            System.out.println("Selenium header  verification FAILED!!!");
+        }
 
         //Close the browser
         driver.quit();

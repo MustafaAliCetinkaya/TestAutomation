@@ -2,12 +2,12 @@ package com.cydeo.tests.locators;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 public class StackOverFlow2 {
 
@@ -16,17 +16,18 @@ public class StackOverFlow2 {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://stackoverflow.com");
-        try {
-            //WebElement element = driver.findElement(By.xpath("//a[.='Questions']"));
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-            wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Questions")));
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            System.out.println(driver.findElement(By.linkText("Questions")).getAttribute("href"));
-            driver.findElement(By.linkText("Questions")).click();
-        } catch (RuntimeException e) {
-            e.printStackTrace();
+
+        WebElement questionsLink = driver.findElement(By.linkText("Questions"));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", questionsLink);
+
+        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+        int count = 1;
+        for (WebElement element : allLinks) {
+            System.out.println(count+". link on the page is: "+element.getText());
+            count++;
         }
-
-
+        driver.close();
     }
 }

@@ -2,17 +2,22 @@ package com.cydeo.tests.locators;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 public class Tasks {
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.etsy.com");
 
-        String expectedTitle="Wooden spoon | Etsy";
+        WebElement searchBox = driver.findElement(By.name("search_query"));
+        searchBox.sendKeys("wooden spoon" + Keys.ENTER);
+
+        String expectedTitle = "Wooden spoon | Etsy";
         String actualTitle = driver.getTitle();
 
         if (actualTitle.equals(expectedTitle))
@@ -27,9 +32,9 @@ public class Tasks {
         String expectedHeaderText = "Log in to ZeroBank";
         String actualHeaderText = headerText.getText();
 
-        if (actualHeaderText.equals(expectedHeaderText)){
+        if (actualHeaderText.equals(expectedHeaderText)) {
             System.out.println("Header text verification PASSED!");
-        }else{
+        } else {
             System.out.println("Header text verification FAILED!!!");
         }
 
@@ -37,8 +42,8 @@ public class Tasks {
 
         driver.navigate().to("https://google.com");
         driver.findElement(By.linkText("Gmail")).click();
-        String expectedGmailTitle="Gmail";
-        String actualGmailTitle=driver.getTitle();
+        String expectedGmailTitle = "Gmail";
+        String actualGmailTitle = driver.getTitle();
 
         if (actualGmailTitle.equals(expectedGmailTitle))
             System.out.println("Title test passed");
@@ -46,8 +51,8 @@ public class Tasks {
             System.out.println("Title test failed");
 
         driver.navigate().back();
-        String expectedGoogleTitle="Gmail";
-        String actualGoogleTitle=driver.getTitle();
+        String expectedGoogleTitle = "Gmail";
+        String actualGoogleTitle = driver.getTitle();
 
         if (actualGoogleTitle.equals(expectedGoogleTitle))
             System.out.println("Google title test passed");
@@ -59,14 +64,23 @@ public class Tasks {
         driver.get("https://practice.cydeo.com/inputs");
         //driver.findElement(By.linkText("Home")).click();
         driver.findElement(By.className("nav-link")).click();
-        String expectedCydeoTitle="Home";
-        String actualCydeoTitle=driver.getTitle();
+        String expectedCydeoTitle = "Home";
+        String actualCydeoTitle = driver.getTitle();
 
         if (actualCydeoTitle.equals(expectedCydeoTitle))
             System.out.println("Cydeo title test passed");
         else
             System.out.println("Cydeo title test failed");
-        driver.close();
+
+        System.out.println("--------------------------------------");
+        driver.get("https://tr-tr.facebook.com/");
+        driver.manage().window().maximize();
+        WebElement email=driver.findElement(By.id("name"));
+        email.sendKeys("abc@gmail.com");
+
+
+
+                driver.close();
 
     }
 

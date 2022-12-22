@@ -38,7 +38,7 @@ public class GetText_GetAttribute {
         //5- Verify placeholder attribute’s value is as expected:
         // Expected: first name
         String expectedPlaceHolder = "first name";
-        String actualPlaceHolder = firstNameInput.getAttribute("placeholder");
+        String actualPlaceHolder = firstNameInput.getAttribute("href");
 
         if (actualPlaceHolder.equals(expectedPlaceHolder)){
             System.out.println("Placeholder text verification PASSED!");

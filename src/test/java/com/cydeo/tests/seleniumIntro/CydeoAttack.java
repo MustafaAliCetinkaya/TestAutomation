@@ -27,6 +27,18 @@ public class CydeoAttack {
             WebElement partnerships= driver.findElement(By.linkText("Partnerships"));
             Thread.sleep(2000);
             partnerships.click();
+            WebElement apply= driver.findElement(By.linkText("Apply Now"));
+            Thread.sleep(2000);
+            apply.click();
+            WebElement name= driver.findElement(By.cssSelector("#input_2_2"));
+            name.sendKeys("Kuzzat");
+            WebElement Surname= driver.findElement(By.cssSelector("#input_2_3"));
+            Surname.sendKeys("Altay");
+            WebElement MiddleName= driver.findElement(By.cssSelector("#input_2_16"));
+            MiddleName.sendKeys("Emperor");
+            WebElement PreferredName= driver.findElement(By.cssSelector("#input_2_28"));
+            PreferredName.sendKeys("One of us / Enough for practice");
+
         }
         driver.quit();
     }

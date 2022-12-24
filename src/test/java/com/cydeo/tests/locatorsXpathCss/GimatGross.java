@@ -53,7 +53,6 @@ public class GimatGross {
         //Click the mandatory fields
         driver.findElement(By.cssSelector("label[for='checkout_attribute_6_28']")).click();
         driver.findElement(By.cssSelector("label[for='termsofservice']")).click();
-
-        //driver.close();
+        driver.close();
     }
 }

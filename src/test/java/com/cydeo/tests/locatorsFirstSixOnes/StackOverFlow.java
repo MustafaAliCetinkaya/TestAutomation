@@ -30,9 +30,9 @@ public class StackOverFlow {
         int count = 1;
         for (WebElement each : list) {
             if(!each.getText().equals(""))
-            System.out.println(count + ". Top question link is : " + each.getText());
+            System.out.println(count + ". Top question link title is : " + each.getText());
             else
-                System.out.println(count + ". Top question link is not assigned");
+                System.out.println(count + ". Top question link title is not assigned");
             count++;
             System.out.println("----------------------------------");
         }

@@ -14,6 +14,7 @@ public class GimatGross {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
         //Go to the market site
         driver.navigate().to("https://www.gimatsepeti.com/");
         //Accept cookies
@@ -25,7 +26,7 @@ public class GimatGross {
 
         //First item is added
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.cssSelector("input[id='5546']")).sendKeys(Keys.BACK_SPACE+"5");
+        driver.findElement(By.cssSelector("input[id='5546']")).sendKeys(Keys.BACK_SPACE + "5");
         driver.findElement(By.cssSelector("div[data-productid='5546']>div>div>div>button")).click();
 
         //Second item is added
@@ -51,8 +52,22 @@ public class GimatGross {
         driver.findElement(By.cssSelector("#checkout_attribute_10")).sendKeys("Great shopping. Thanks");
 
         //Click the mandatory fields
-        driver.findElement(By.cssSelector("label[for='checkout_attribute_6_28']")).click();
-        driver.findElement(By.cssSelector("label[for='termsofservice']")).click();
+        WebElement checkBox1 = driver.findElement(By.cssSelector("label[for='checkout_attribute_6_28']"));
+        System.out.println("Before click checkBox1.isSelected()= " + checkBox1.isSelected());
+        checkBox1.click();
+        System.out.println("After click checkBox1.getAttribute()= " + checkBox1.getAttribute("label"));
+        if (checkBox1.isSelected())
+            System.out.println("CheckBox1 is already selected");
+        else {
+            System.out.println("CheckBox was not selected before. We did it just now!");
+            checkBox1.click();
+        }
+
+        WebElement checkBox2 = driver.findElement(By.cssSelector("label[for='termsofservice']"));
+        System.out.println("Before click checkBox1.getAttribute()= " + checkBox2.getAttribute("label"));
+        checkBox2.click();
+        System.out.println("After click checkBox1.isSelected()= " + checkBox2.isSelected());
+
         driver.close();
     }
 }

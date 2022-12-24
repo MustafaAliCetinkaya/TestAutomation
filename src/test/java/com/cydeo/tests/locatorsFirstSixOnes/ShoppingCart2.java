@@ -1,4 +1,4 @@
-package com.cydeo.tests.locatorsFirstSix;
+package com.cydeo.tests.locatorsFirstSixOnes;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;

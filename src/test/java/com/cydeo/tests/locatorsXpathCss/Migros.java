@@ -22,14 +22,13 @@ public class Migros {
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//Wait for uploading
 
 
-
         //Find the search box and search for kek
         WebElement searchBox = driver.findElement(By.xpath("//input[@id='product-search-combobox--trigger']"));
         searchBox.sendKeys("kek" + Keys.ENTER);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//Wait for uploading
         //First item will be added after clicking the mandatory fields
         //First things first, fill the related checkboxes
-        WebElement firstItem= driver.findElement(By.xpath("//div[@class='bottom-row']//fa-icon[@id='product-actions-add-to-cart-button--kekstra-konfeti-muffin-kek-kakaolu-38-g-p-4dad0d']"));
+        WebElement firstItem = driver.findElement(By.xpath("//div[@class='bottom-row']//fa-icon[@id='product-actions-add-to-cart-button--kekstra-konfeti-muffin-kek-kakaolu-38-g-p-4dad0d']"));
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//Wait for uploading
         firstItem.click();
         driver.findElement(By.xpath("//div[.='Tıkla Gel Al']")).click();
@@ -45,7 +44,7 @@ public class Migros {
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//Wait for uploading
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--droetker-limonlu-kek-karisimi-440-g-p-4cebd2']")).click();//Add first item on the list
 
-        for (int i = 0; i <24; i++) {
+        for (int i = 0; i < 24; i++) {
             driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//Wait for uploading
             driver.findElement(By.cssSelector("#product-actions-product-increase--droetker-limonlu-kek-karisimi-440-g-p-4cebd2")).click();
         }
@@ -55,13 +54,15 @@ public class Migros {
         driver.findElement(By.xpath("//Button[.='Sepete Git']")).click();
 
         //Go to payment page
-        driver.findElement(By.cssSelector("#checkout-summary-mobile-confirm-button > span.mat-mdc-button-touch-target")).click();
+        driver.findElement(By.cssSelector("#checkout-summary-desktop-confirm-button")).click();
         driver.findElement(By.xpath("//span[.=' Üye olmadan devam et ']")).click();
 
         //Enter your personal information
-        driver.findElement(By.cssSelector("#mat-input-3")).sendKeys("Mustafa Ali");
-        driver.findElement(By.cssSelector("#mat-input-4")).sendKeys("Çetinkaya");
-        driver.findElement(By.cssSelector("#mat-input-5")).sendKeys("I signed the task. Enough for practice!");
+        driver.findElement(By.cssSelector("#mat-input-1")).sendKeys("Mustafa Ali");
+        driver.findElement(By.cssSelector("#mat-input-2")).sendKeys("Çetinkaya");
+        driver.findElement(By.cssSelector("#mat-input-3")).sendKeys("I signed the task. Enough for practice!");
 
+        System.out.println("We are done without any error!");
+        //driver.close();
     }
 }

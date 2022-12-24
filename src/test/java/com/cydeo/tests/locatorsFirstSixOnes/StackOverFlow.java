@@ -2,6 +2,7 @@ package com.cydeo.tests.locatorsFirstSixOnes;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,19 +14,28 @@ public class StackOverFlow {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-        driver.get("https://stackoverflow.com/questions");
+        //Go to the main page
+        driver.get("https://stackoverflow.com");
+        //Accept the cookies
+        driver.findElement(By.xpath("(//button)[3]")).click();
+        //Go to the Questions link (At the footer)
+        WebElement element=driver.findElement(By.xpath("(//a[@href='/questions'])[6]"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", element);
+        //Add the all question links to the ArrayList
         List<WebElement> list = driver.findElements(By.className("question-hyperlink"));
 
         System.out.println("Number of the current top questions: " + list.size());
 
         int count = 1;
-        for (WebElement element : list) {
-            System.out.println(count + ". Top question link is : " + element.getAttribute("href"));
+        for (WebElement each : list) {
+            if(!each.getText().equals(""))
+            System.out.println(count + ". Top question link is : " + each.getText());
+            else
+                System.out.println(count + ". Top question link is not assigned");
             count++;
             System.out.println("----------------------------------");
         }
         driver.close();
     }
-
 }

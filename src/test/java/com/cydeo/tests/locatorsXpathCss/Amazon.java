@@ -44,7 +44,7 @@ public class Amazon {
         //Search for second item and add it
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("macbook air m1 mouse wireless"+Keys.ENTER);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//label[.='Sort by:']")).click();
+        driver.findElement(By.xpath("//*[.='Featured']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[.='Price: Low to High']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

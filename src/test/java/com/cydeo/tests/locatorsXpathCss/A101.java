@@ -37,6 +37,7 @@ public class A101 {
         driver.findElement(By.xpath("//label[.='40-45']")).click();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//label[.='SİYAH']")).click();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[@title=\"Unisex Termal Bot Çorap Siyah\"]")).click();
         //Verify the color
         String expectedColor="Siyah";

@@ -46,7 +46,5 @@ public class T1_locators_getText {
         }else{
             System.out.println("Error message verification FAILED!!!");
         }
-
     }
-
 }

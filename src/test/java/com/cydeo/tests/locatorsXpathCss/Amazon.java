@@ -27,11 +27,21 @@ public class Amazon {
         driver.findElement(By.xpath("(//span[@class='a-button-inner'])[1]")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[.='Price: Low to High']")).click();
+        //driver.findElement(By.cssSelector("a[id='s-result-sort-select_1']")).click(); Another way for locating below given element
         //First item
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.cssSelector("img[data-image-index='13']")).click();
+        driver.findElement(By.cssSelector("img[alt='Ninecer High Back Office Chair Ergonomic, Home Office Desk Chair for Teens 330 lbs, Comfortable Computer Gaming Chair Chea...']")).click();
+        driver.findElement(By.xpath("(//span[.='Add to Cart']//span)[1]")).click();
+        //Second item
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("game chairs"+ Keys.ENTER);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//span[@id='a-autoid-0-announce']")).click();
+        driver.findElement(By.xpath("//span[.='Sort by:']")).click();
+        driver.findElement(By.xpath("//a[.='Price: Low to High']")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.findElement(By.cssSelector("img[alt='Office Gaming Chair with Flip-up Armrests, Ergonomic Computer Game Chair Bonded Leather Swivel Desk Chair Adjustable Heigh...']")).click();
+        //driver.findElement(By.cssSelector("img[data-image-index='13']")).click(); Always getting different item. Order of the items changes
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//span[@id='a-autoid-4-announce']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[@id='quantity_2']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -46,9 +56,11 @@ public class Amazon {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//*[.='Featured']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//a[.='Price: Low to High']")).click();
+        driver.findElement(By.xpath("//*[.='Price: Low to High']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("(//h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-2'])[1]")).click();
+        driver.findElement(By.xpath("(//img[@class='s-image'])[1]")).click();
+        driver.findElement(By.xpath("(//span[.='Add to Cart']//span)[1]")).click();
+
 
 
     }

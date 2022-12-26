@@ -28,13 +28,29 @@ public class A101 {
             executor.executeScript("arguments[0].click();", cookies);
         }
         //Find the first item
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.xpath("(//a[@title=\"GİYİM & AKSESUAR\"])[1]")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("a[data-value=\"1588\"]")).click();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("a[data-value=\"1589\"]")).click();
         driver.findElement(By.xpath("//label[.='40-45']")).click();
-        driver.findElement(By.xpath("//label[.='Erkek']")).click();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//label[.='SİYAH']")).click();
+        driver.findElement(By.xpath("//a[@title=\"Unisex Termal Bot Çorap Siyah\"]")).click();
+        //Verify the color
+        String expectedColor="Siyah";
+        String actualColor= driver.findElement(By.xpath("(//div[@class='selected-variant-text']//span)[2]")).getText();
+        if(expectedColor.equalsIgnoreCase(actualColor))
+            System.out.println("Color test is PASSED!");
+        else
+            System.out.println("Color test is FAILED!");
+        //Add the item to the cart
+        for (int i = 0; i < 10; i++) {
+            driver.findElement(By.cssSelector("i.icon-plus")).click();
+        }
+        driver.findElement(By.cssSelector("i.icon-sepetekle")).click();
+
 
 
         //Find the search box

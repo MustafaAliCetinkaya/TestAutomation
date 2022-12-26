@@ -24,14 +24,17 @@ public class Amazon {
         searchBox.sendKeys("game chairs"+ Keys.ENTER);
         //Sort by price//a[.='Featured']
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("(//span[@class='a-button-inner'])[1]")).click();
+        driver.findElement(By.xpath("//span[.='Sort by:']")).click();
+        //driver.findElement(By.xpath("(//span[@class='a-button-inner'])[1]")).click();Another way for sorting
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[.='Price: Low to High']")).click();
-        //driver.findElement(By.cssSelector("a[id='s-result-sort-select_1']")).click(); Another way for locating below given element
+        //driver.findElement(By.cssSelector("a[id='s-result-sort-select_1']")).click(); Another way for sorting
+
         //First item
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("img[alt='Ninecer High Back Office Chair Ergonomic, Home Office Desk Chair for Teens 330 lbs, Comfortable Computer Gaming Chair Chea...']")).click();
         driver.findElement(By.xpath("(//span[.='Add to Cart']//span)[1]")).click();
+
         //Second item
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("game chairs"+ Keys.ENTER);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -51,7 +54,7 @@ public class Amazon {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[@id='nav-cart']")).click();
 
-        //Search for second item and add it
+        //Search for third item and add it
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("macbook air m1 mouse wireless"+Keys.ENTER);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//*[.='Featured']")).click();
@@ -61,7 +64,12 @@ public class Amazon {
         driver.findElement(By.xpath("(//img[@class='s-image'])[1]")).click();
         driver.findElement(By.xpath("(//span[.='Add to Cart']//span)[1]")).click();
 
+        //Go to cart for paying
+        driver.findElement(By.xpath("//a[@ href=\"/gp/cart/view.html?ref_=sw_gtc\"]")).click();
+        driver.findElement(By.cssSelector("input#sc-buy-box-gift-checkbox")).click();//Click the gift button
+        driver.findElement(By.xpath("//input[@name=\"proceedToRetailCheckout\"]")).click();//Proceed to check out
+        driver.findElement(By.cssSelector("input#ap_email")).sendKeys("We are done! Enough for practice.");//Login page
 
-
+        //driver.close();
     }
 }

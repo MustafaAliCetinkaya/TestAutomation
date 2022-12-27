@@ -1,10 +1,7 @@
 package com.cydeo.tests.locatorsXpathCss;
 
 import com.cydeo.tests.utilities.WebDriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -36,7 +33,7 @@ public class A101 {
         driver.findElement(By.cssSelector("a[data-value=\"1589\"]")).click();
         driver.findElement(By.xpath("//label[.='40-45']")).click();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//label[.='SİYAH']")).click();
+        driver.findElement(By.cssSelector("label[for=\"attributes_integration_colourSİYAH\"]")).click();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[@title=\"Unisex Termal Bot Çorap Siyah\"]")).click();
         //Verify the color
@@ -47,15 +44,32 @@ public class A101 {
         else
             System.out.println("Color test is FAILED!");
         //Add the item to the cart
-        for (int i = 0; i < 10; i++) {
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.findElement(By.cssSelector("a[title=\"40-45\"]")).click();
+
+        for (int i = 0; i < 5; i++) {
             driver.findElement(By.cssSelector("i.icon-plus")).click();
         }
-        driver.findElement(By.cssSelector("i.icon-sepetekle")).click();
 
+        //Verify the title of the item contains expected:
+        //Expected: "Çorap Siyah"
+        String expectedWordInItemTitle="Çorap Siyah";
+        String actualItemTitle=driver.findElement(By.cssSelector("h1.product-name.js-name")).getText();
+        if(actualItemTitle.contains(expectedWordInItemTitle))
+            System.out.println("Item title test is PASSED!");
+        else
+            System.out.println("Item title test is FAILED!");
+
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.findElement(By.cssSelector("i.icon-sepetekle")).click();
+        //Go to cart
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.findElement(By.cssSelector("a.go-to-shop")).click();
 
 
         //Find the search box
         WebElement searchBox = driver.findElement(By.xpath("(//input[@name=\"search_text\"])[1]"));
+        searchBox.sendKeys("Albeni"+ Keys.ENTER);
         //Search for item
 
     }

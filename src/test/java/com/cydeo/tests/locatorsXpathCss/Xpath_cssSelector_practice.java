@@ -62,6 +62,7 @@ public class Xpath_cssSelector_practice {
         System.out.println("inputBox_ex1.isDisplayed() = " + inputBox_ex1.isDisplayed());
         System.out.println("retrievePasswordBtn.isDisplayed() = " + retrievePasswordBtn.isDisplayed());
         System.out.println("poweredByCydeoText.isDisplayed() = " + poweredByCydeoText.isDisplayed());
+        System.out.println("poweredByCydeoText = " + poweredByCydeoText.getText());
 
     }
 }

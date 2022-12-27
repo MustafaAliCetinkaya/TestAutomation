@@ -10,6 +10,10 @@ public class A101 {
 
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        /*- Basically this line will allow our driver to wait UP TO given time if the driver cannot immediately locate a web element.
+        - We write it one time, and it is applied to the whole driver session.
+        - Driver does not have to wait until 10 seconds have ended. If it finds the web element before maybe in 2 second, 5 seconds it will continue with execution.*/
         driver.manage().deleteAllCookies();
 
         //Go to: A101 page
@@ -25,26 +29,22 @@ public class A101 {
             executor.executeScript("arguments[0].click();", cookies);
         }
         //Find the first item
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.xpath("(//a[@title=\"GİYİM & AKSESUAR\"])[1]")).click();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("a[data-value=\"1588\"]")).click();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("a[data-value=\"1589\"]")).click();
-        driver.findElement(By.xpath("//label[.='40-45']")).click();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.findElement(By.cssSelector("label[for=\"attributes_integration_colourSİYAH\"]")).click();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        //driver.findElement(By.xpath("//label[.='40-45']")).click();   Not clickable exemption is thrown
+        driver.findElement(By.cssSelector("input#attributes_integration_size40-45")).click();
+        //driver.findElement(By.cssSelector("label[for=\"attributes_integration_colourSİYAH\"]")).click();  Not clickable exemption is thrown
+        driver.findElement(By.cssSelector("input#attributes_integration_colourSİYAH")).click();
         driver.findElement(By.xpath("//a[@title=\"Unisex Termal Bot Çorap Siyah\"]")).click();
         //Verify the color
-        String expectedColor="Siyah";
-        String actualColor= driver.findElement(By.xpath("(//div[@class='selected-variant-text']//span)[2]")).getText();
-        if(expectedColor.equalsIgnoreCase(actualColor))
+        String expectedColor = "Siyah";
+        String actualColor = driver.findElement(By.xpath("(//div[@class='selected-variant-text']//span)[2]")).getText();
+        if (expectedColor.equalsIgnoreCase(actualColor))
             System.out.println("Color test is PASSED!");
         else
             System.out.println("Color test is FAILED!");
         //Add the item to the cart
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("a[title=\"40-45\"]")).click();
 
         for (int i = 0; i < 5; i++) {
@@ -53,23 +53,21 @@ public class A101 {
 
         //Verify the title of the item contains expected:
         //Expected: "Çorap Siyah"
-        String expectedWordInItemTitle="Çorap Siyah";
-        String actualItemTitle=driver.findElement(By.cssSelector("h1.product-name.js-name")).getText();
-        if(actualItemTitle.contains(expectedWordInItemTitle))
+        String expectedWordInItemTitle = "Çorap Siyah";
+        String actualItemTitle = driver.findElement(By.cssSelector("h1.product-name.js-name")).getText();
+        if (actualItemTitle.contains(expectedWordInItemTitle))
             System.out.println("Item title test is PASSED!");
         else
             System.out.println("Item title test is FAILED!");
 
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("i.icon-sepetekle")).click();
         //Go to cart
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.cssSelector("a.go-to-shop")).click();
 
 
         //Find the search box
         WebElement searchBox = driver.findElement(By.xpath("(//input[@name=\"search_text\"])[1]"));
-        searchBox.sendKeys("Albeni"+ Keys.ENTER);
+        searchBox.sendKeys("Albeni" + Keys.ENTER);
         //Search for item
 
     }

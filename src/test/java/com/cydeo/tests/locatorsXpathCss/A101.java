@@ -92,6 +92,7 @@ public class A101 {
         //Expected: "Çorap Siyah"
         String expectedWordInItemTitle = "Çorap Siyah";
         String actualItemTitle = driver.findElement(By.cssSelector("h1.product-name.js-name")).getText();
+
         if (actualItemTitle.contains(expectedWordInItemTitle))
             System.out.println("Item title test is PASSED!");
         else

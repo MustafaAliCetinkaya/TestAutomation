@@ -25,12 +25,14 @@ public class A101 {
         WebElement cookies = driver.findElement(By.xpath("//button[.='Kabul Et']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", cookies);
+
         try {
             cookies.click();
         } catch (Exception e) {
             JavascriptExecutor executor = (JavascriptExecutor) driver;
             executor.executeScript("arguments[0].click();", cookies);
         }
+
         //Find the first item
         driver.findElement(By.xpath("(//a[@title=\"GİYİM & AKSESUAR\"])[1]")).click();
         //driver.findElement(By.cssSelector("a[data-value=\"1588\"]")).click(); Sometimes ElementNotClickable exemption is thrown

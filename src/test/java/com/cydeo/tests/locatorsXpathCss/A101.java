@@ -1,7 +1,10 @@
 package com.cydeo.tests.locatorsXpathCss;
 
 import com.cydeo.tests.utilities.WebDriverFactory;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,13 +46,13 @@ public class A101 {
         System.out.println("Before test color.isSelected(), expecting false = " + driver.findElement(By.cssSelector("li.checkbox>input[value='SİYAH']")).isSelected());
         System.out.println("Before test size.isSelected(), expecting false = " + driver.findElement(By.cssSelector("li.checkbox>input#attributes_integration_size40-45")).isSelected());
 
-        for(int i=0; i<=2;i++){
-            try{
+        for (int i = 0; i <= 2; i++) {
+            try {
                 driver.findElement(By.cssSelector("li.checkbox>input#attributes_integration_size40-45")).click();
                 //driver.findElement(By.cssSelector("label[for=\"attributes_integration_colourSİYAH\"]")).click();  Sometimes ElementNotClickable exemption is thrown
-                driver.findElement(By.cssSelector("li.checkbox>input[value='SİYAH']")).click();                break;
-            }
-            catch(Exception e){
+                driver.findElement(By.cssSelector("li.checkbox>input[value='SİYAH']")).click();
+                break;
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -58,8 +61,14 @@ public class A101 {
         System.out.println("After test color.isSelected(), expecting true = " + driver.findElement(By.cssSelector("li.checkbox>input[value='SİYAH']")).isSelected());
         System.out.println("After test size.isSelected(), expecting true = " + driver.findElement(By.cssSelector("li.checkbox>input#attributes_integration_size40-45")).isSelected());
 
-
-        driver.findElement(By.xpath("//a[@title=\"Unisex Termal Bot Çorap Siyah\"]")).click();
+        for (int i = 0; i <= 2; i++) {//This part throws staleElementExemption
+            try {
+                driver.findElement(By.xpath("//a[@title=\"Unisex Termal Bot Çorap Siyah\"]")).click();
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         //Verify the color
         String expectedColor = "Siyah";
@@ -94,8 +103,17 @@ public class A101 {
 
         //Find the search box
         WebElement searchBox = driver.findElement(By.xpath("(//input[@name=\"search_text\"])[1]"));
-        searchBox.sendKeys("Albeni"+Keys.ENTER);
         //Search for item
+        searchBox.sendKeys("Albeni");
+        driver.findElement(By.xpath("//button[@type=\"submit\" and em[@class=\"input-icon icon-search\"]]")).click();
+        //Add new items to the cart
+        driver.findElement(By.xpath("//div[@data-pk=\"1558\"]")).click();
+        //Go to the cart
+        driver.findElement(By.xpath("//a[@href=\"/baskets/basket/\" and @title=\"Sepet\" and @class=\"js-header-basket-toggle\"]")).click();
+        //Go to the payment page
+        driver.findElement(By.xpath("//a[@title=\"Sepeti Onayla\" and @href=\"/orders/checkout/\"]")).click();
+        //Continue without sign up
+        driver.findElement(By.xpath("//a[@title=\"ÜYE OLMADAN DEVAM ET\"]")).click();
 
     }
 }

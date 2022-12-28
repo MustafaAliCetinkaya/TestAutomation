@@ -38,6 +38,11 @@ public class A101 {
 
         // Using for loop, it tries for 3 times.
         // If the element is located for the first time then it breaks from the for loop nad comeout of the loop
+
+        //Before test, Confirm color and size checkboxes are NOT selected by default.
+        System.out.println("Before test color.isSelected(), expecting false = " + driver.findElement(By.cssSelector("li.checkbox>input[value='SİYAH']")).isSelected());
+        System.out.println("Before test size.isSelected(), expecting false = " + driver.findElement(By.cssSelector("li.checkbox>input#attributes_integration_size40-45")).isSelected());
+
         for(int i=0; i<=2;i++){
             try{
                 driver.findElement(By.cssSelector("li.checkbox>input#attributes_integration_size40-45")).click();
@@ -49,7 +54,13 @@ public class A101 {
             }
         }
 
+        //After test, Confirm color and size checkboxes must be selected by driver.
+        System.out.println("After test color.isSelected(), expecting true = " + driver.findElement(By.cssSelector("li.checkbox>input[value='SİYAH']")).isSelected());
+        System.out.println("After test size.isSelected(), expecting true = " + driver.findElement(By.cssSelector("li.checkbox>input#attributes_integration_size40-45")).isSelected());
+
+
         driver.findElement(By.xpath("//a[@title=\"Unisex Termal Bot Çorap Siyah\"]")).click();
+
         //Verify the color
         String expectedColor = "Siyah";
         String actualColor = driver.findElement(By.xpath("(//div[@class='selected-variant-text']//span)[2]")).getText();
@@ -57,8 +68,12 @@ public class A101 {
             System.out.println("Color test is PASSED!");
         else
             System.out.println("Color test is FAILED!");
+
         //Add the item to the cart
+        System.out.println("Before test size.isSelected(), expecting true = " + driver.findElement(By.cssSelector("a[title=\"40-45\"]")).isSelected());
         driver.findElement(By.cssSelector("a[title=\"40-45\"]")).click();
+        System.out.println("After test size.isSelected(), expecting true = " + driver.findElement(By.cssSelector("a[title=\"40-45\"]")).isSelected());
+
 
         for (int i = 0; i < 5; i++) {
             driver.findElement(By.cssSelector("i.icon-plus")).click();

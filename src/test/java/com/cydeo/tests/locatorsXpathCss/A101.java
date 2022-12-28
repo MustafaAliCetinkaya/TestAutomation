@@ -73,6 +73,7 @@ public class A101 {
         //Verify the color
         String expectedColor = "Siyah";
         String actualColor = driver.findElement(By.xpath("(//div[@class='selected-variant-text']//span)[2]")).getText();
+
         if (expectedColor.equalsIgnoreCase(actualColor))
             System.out.println("Color test is PASSED!");
         else

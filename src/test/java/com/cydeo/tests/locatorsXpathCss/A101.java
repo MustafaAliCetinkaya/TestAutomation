@@ -114,6 +114,8 @@ public class A101 {
         driver.findElement(By.xpath("//a[@title=\"Sepeti Onayla\" and @href=\"/orders/checkout/\"]")).click();
         //Continue without sign up
         driver.findElement(By.xpath("//a[@title=\"ÜYE OLMADAN DEVAM ET\"]")).click();
+        //Write your mail address to the pup up box
+        driver.findElement(By.xpath("//input[@name=\"user_email\"]")).sendKeys("Enough for practice!");
 
     }
 }

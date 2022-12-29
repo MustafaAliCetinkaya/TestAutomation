@@ -28,7 +28,8 @@ public class A101 {
 
         try {
             cookies.click();
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             JavascriptExecutor executor = (JavascriptExecutor) driver;
             executor.executeScript("arguments[0].click();", cookies);
         }
@@ -87,7 +88,7 @@ public class A101 {
         System.out.println("After test size.isSelected(), expecting true = " + driver.findElement(By.cssSelector("a[title=\"40-45\"]")).isSelected());
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             driver.findElement(By.cssSelector("i.icon-plus")).click();
         }
 

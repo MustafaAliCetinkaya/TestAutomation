@@ -55,6 +55,8 @@ public class ManageMethods {
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
+        driver.close();
+
         /*      wait konusunu ilerde tek basina ele alacagiz
                 ancak her class icin yapmamiz gereken bir ayar oldugu icin burada kisaca deginelim
                 implicitlyWait : driver'a sayfanin yuklenmesi ve kullanacagimiz webelementlerin bulunmasi icin

@@ -51,9 +51,6 @@ public class ManageMethods {
         System.out.println("fullscreen konum : " + driver.manage().window().getPosition()); // (0, 0)
         System.out.println("fullscreen boyut : " + driver.manage().window().getSize()); // (1600, 900)
 
-        // 1-G driver.manage().window().minimize(); --> sayfayi simge durumunda kucultur
-        driver.manage().window().fullscreen();
-
         // 2- driver.manage().timeouts() methodlari
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

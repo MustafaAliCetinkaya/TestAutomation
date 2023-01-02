@@ -1,6 +1,6 @@
 package com.cydeo.selenium.locatorsXpathCss;
 import com.cydeo.selenium.utilities.WebDriverFactory;
-import com.cydeo.tests.utilities.*;
+import com.cydeo.testNG.utilities.*;
 import org.openqa.selenium.*;
 
 public class Xpath_cssSelector_practice {

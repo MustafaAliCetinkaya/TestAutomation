@@ -1,10 +1,11 @@
 package com.cydeo.selenium.locatorsXpathCss;
 
 import com.cydeo.selenium.utilities.WebDriverFactory;
-import com.cydeo.tests.utilities.*;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.*;
+import java.util.concurrent.TimeUnit;
 
 public class T6_StaleElementReferenceException {
 

@@ -1,4 +1,4 @@
-package com.cydeo.tests.utilities;
+package com.cydeo.selenium.utilities;
 // TASK: NEW METHOD CREATION
 // Method name : getDriver
 // Static method

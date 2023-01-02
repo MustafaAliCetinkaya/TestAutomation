@@ -1,5 +1,6 @@
 package com.cydeo.tests.locatorsXpathCss;
 
+import com.cydeo.selenium.utilities.WebDriverFactory;
 import com.cydeo.tests.utilities.*;
 import org.openqa.selenium.*;
 

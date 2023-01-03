@@ -14,6 +14,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class WebDriverFactory {
 
     public static WebDriver getDriver(String browserType) {
@@ -32,5 +34,36 @@ public class WebDriverFactory {
             System.out.println("Driver = null");
             return null;
         }
+    }
+
+    public static WebDriver getDriver(byte browserNumber) {
+        WebDriver driver;
+
+        switch (browserNumber) {
+
+            case 1:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+
+            case 2:
+                WebDriverManager.safaridriver().setup();
+                driver = new SafariDriver();
+                break;
+
+            case 3:
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+
+            default:
+                System.out.println("Given browser type does not exist/or is not currently supported: "+browserNumber);
+                driver=null;
+        }
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return driver;
+
     }
 }

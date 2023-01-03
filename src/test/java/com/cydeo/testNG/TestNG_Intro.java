@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
+import java.util.concurrent.TimeUnit;
+
 public class TestNG_Intro {
     @BeforeClass
     public void setupMethod(){
@@ -23,6 +25,8 @@ public class TestNG_Intro {
     public void setUpMethod(){
         System.out.println("---> BeforeMethod is running!");
         driver= WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
 

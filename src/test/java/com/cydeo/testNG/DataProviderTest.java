@@ -23,7 +23,7 @@ public class DataProviderTest {
         driver.findElement(By.xpath("(//*[contains(text(),\"https://\")])[2]")).click();
         Assert.assertEquals(driver.getCurrentUrl(),expectedUrl,keyword+" test is failed");
 
-        driver.quit();
+        driver.close();
     }
 
     @DataProvider(name = "searchData")

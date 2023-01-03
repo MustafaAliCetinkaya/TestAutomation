@@ -29,11 +29,11 @@ public class DataProviderTest {
     @DataProvider(name = "searchData")
     public Object[][] testData() {
         return new Object[][]{
-                {"cydeo","https://cydeo.com"} ,
-                {"java","https://www.java.com"} ,
-                {"selenium","https://www.selenium.com"} ,
+                {"cydeo","https://cydeo.com/"} ,
+                {"java","https://www.java.com/tr/"} ,
+                {"selenium","https://www.selenium.dev/"} ,
                 {"testNG","https://www.testng.com"} ,
-                {"migros","https://www.migros.com.tr"} ,
+                {"migros","https://www.migros.com.tr/"} ,
                 {"amazon","https://www.amazon.com"}
         };
     }

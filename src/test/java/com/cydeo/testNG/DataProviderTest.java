@@ -6,9 +6,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DataProvider {
+public class DataProviderTest {
     WebDriver driver;
 
     @Test(dataProvider = "searchData")
@@ -25,16 +26,15 @@ public class DataProvider {
         driver.quit();
     }
 
-    @org.testng.annotations.DataProvider(name = "searchData")
+    @DataProvider(name = "searchData")
     public Object[][] testData() {
         return new Object[][]{
-                {"cydeo","https://www.cydeo.com"} ,
+                {"cydeo","https://cydeo.com"} ,
                 {"java","https://www.java.com"} ,
                 {"selenium","https://www.selenium.com"} ,
                 {"testNG","https://www.testng.com"} ,
-                {"migros","https://www.migros.com"} ,
-                {"amazon","https://www.amazon.com"} ,
+                {"migros","https://www.migros.com.tr"} ,
+                {"amazon","https://www.amazon.com"}
         };
-
     }
 }

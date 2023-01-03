@@ -29,7 +29,7 @@ public class TestNG_Intro {
         //AssertTrue
         String actual = "apple";
         String expected = "apple";
-        Assert.assertTrue(actual.equals(expected), "your message will go here");
+        Assert.assertTrue(actual.equals(expected), "your message will go here");//This is hard assertion. If the previous test is failed, remaining code will not be executed in the block.
 
 
         driver.navigate().to("https://cydeo.com");

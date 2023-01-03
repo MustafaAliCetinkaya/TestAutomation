@@ -1,10 +1,9 @@
 package com.cydeo.testNG;
 
-import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.reusableMethods.pages.AmazonPage;
 import org.testng.annotations.Test;
 
-public class AmazonTestNG extends TestBase {
+public class AmazonTestNG {
     AmazonPage pageObject = new AmazonPage();
 
     @Test

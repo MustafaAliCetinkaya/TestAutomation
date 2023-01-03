@@ -36,6 +36,18 @@ public class AmazonPage {
     @FindBy(xpath = "(//span[@class='a-size-medium a-color-base a-text-normal'])[2]")
     public WebElement iphone;
 
+    @FindBy(xpath = "(//span[@class='a-size-base-plus a-color-base a-text-normal'])[2]")
+    public WebElement bag;
+
+    @FindBy(css = "input#sc-buy-box-gift-checkbox")
+    public WebElement giftCheckBox;
+
+    @FindBy(xpath = "//input[@name='proceedToRetailCheckout']")
+    public WebElement checkoutButton;
+
+    @FindBy(css = "input#ap_email")
+    public WebElement emailBox;
+
 
     public void searchItem(String item) {
         searchBox.sendKeys(item + Keys.ENTER);
@@ -44,6 +56,12 @@ public class AmazonPage {
 
     public void goCart() {
         cart.click();
+    }
+
+    public void goCheckoutPage() {
+        giftCheckBox.click();
+        checkoutButton.click();
+        emailBox.sendKeys("We are done! Enough for practice.");
     }
 
 

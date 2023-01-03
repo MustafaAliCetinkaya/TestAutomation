@@ -14,5 +14,11 @@ public class AmazonTestNG extends TestBase {
         pageObject.sortItemsByPrice();
         pageObject.addItem(pageObject.gameChair);
         pageObject.goCart();
+        //Second item
+        pageObject.searchItem("bags");
+        pageObject.addItem(pageObject.bag);
+        pageObject.goCart();
+        //Go to the checkout page
+        pageObject.goCheckoutPage();
     }
 }

@@ -1,6 +1,6 @@
 package com.cydeo.selenium.locatorsXpathCss;
 
-import com.cydeo.selenium.utilities.WebDriverFactory;
+import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

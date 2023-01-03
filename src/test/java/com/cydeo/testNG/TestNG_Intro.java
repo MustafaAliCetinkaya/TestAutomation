@@ -1,6 +1,6 @@
 package com.cydeo.testNG;
 
-import com.cydeo.selenium.utilities.WebDriverFactory;
+import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;

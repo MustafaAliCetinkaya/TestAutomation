@@ -4,7 +4,18 @@ import com.cydeo.selenium.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
+
 public class TestNG_Intro {
+    @BeforeClass
+    public void setupMethod(){
+        System.out.println("-----> BeforeClass is running!");
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertNotEquals(6,7);
+        System.out.println("softAssert test1 is passed");
+        softAssert.assertEquals(45,45);
+        System.out.println("softAssert test2 is passed");
+    }
     WebDriver driver= WebDriverFactory.getDriver("chrome");
 
     @Test (priority = 1)
@@ -39,11 +50,7 @@ public class TestNG_Intro {
         driver.quit();
     }
 
-    @BeforeClass
-    public void setupMethod(){
-        System.out.println("-----> BeforeClass is running!");
 
-    }
 
     @AfterClass
     public void tearDownClass(){

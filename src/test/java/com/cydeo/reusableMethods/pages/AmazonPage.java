@@ -30,8 +30,11 @@ public class AmazonPage {
     @FindBy(css = "a#s-result-sort-select_1")
     public WebElement sortByPriceLowToHigh;
 
-    @FindBy(xpath = "(//span[@class=\"a-size-base-plus a-color-base a-text-normal\"])[2]")
-    public WebElement selectItem;
+    @FindBy(xpath = "(//span[@class='a-size-base-plus a-color-base a-text-normal'])[5]")
+    public WebElement gameChair;
+
+    @FindBy(xpath = "(//span[@class='a-size-medium a-color-base a-text-normal'])[2]")
+    public WebElement iphone;
 
 
     public void searchItem(String item) {
@@ -50,8 +53,8 @@ public class AmazonPage {
     }
 
 
-    public void addItem() {
-        selectItem.click();
+    public void addItem(WebElement element) {
+        element.click();
         addToCart.click();
     }
 }

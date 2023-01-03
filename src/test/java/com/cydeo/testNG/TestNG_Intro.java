@@ -18,11 +18,13 @@ public class TestNG_Intro {
         System.out.println("softAssert test2 is passed");
     }
 
+    WebDriver driver;
     @BeforeMethod
     public void setUpMethod(){
         System.out.println("---> BeforeMethod is running!");
+        driver= WebDriverFactory.getDriver("chrome");
     }
-    WebDriver driver= WebDriverFactory.getDriver("chrome");
+
 
     @Test (priority = 1)
     public void test1(){
@@ -46,19 +48,19 @@ public class TestNG_Intro {
         //AssertTrue
         String actual = "apple";
         String expected = "apple";
-        Assert.assertTrue(actual.equals(expected), "your message will go here");//This is hard assertion. If the previous test is failed, remaining code will not be executed in the block.
-
-
+        Assert.assertTrue(actual.equals(expected), "If the test is failed, this message will be thrown");//This is hard assertion. If the previous test is failed, remaining code will not be executed in the block.
+//Messages are shown if the test is failed. Otherwise, we will not see this messages!
+//Since it is a hard assertion, if the above written codes are not passed, below block will not be executed.
         driver.navigate().to("https://cydeo.com");
         String expectedTitle="Cydeo";
         String actualTitle=driver.getTitle();
         Assert.assertTrue(actualTitle.equalsIgnoreCase(expectedTitle),"Title test2 passed");
-        driver.quit();
     }
 
     @AfterMethod
     public void tearDownMethod(){
         System.out.println("---> AfterMethod is running!");
+        driver.quit();
     }
 
     @AfterClass

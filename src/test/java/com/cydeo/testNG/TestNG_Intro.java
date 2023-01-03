@@ -20,7 +20,6 @@ public class TestNG_Intro {
         driver.get("https://www.google.com/");
         Assert.assertEquals(driver.getTitle(),"Google","Title test1 passed");
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.google.com/");
-        driver.close();
     }
 
     @Test (priority = 2)
@@ -32,10 +31,12 @@ public class TestNG_Intro {
         String expected = "apple";
         Assert.assertTrue(actual.equals(expected), "your message will go here");
 
-        driver.get("https://cydeo.com");
+
+        driver.navigate().to("https://cydeo.com");
         String expectedTitle="Cydeo";
         String actualTitle=driver.getTitle();
         Assert.assertTrue(actualTitle.equalsIgnoreCase(expectedTitle),"Title test2 passed");
+        driver.quit();
     }
 
     @BeforeClass
@@ -47,7 +48,6 @@ public class TestNG_Intro {
     @AfterClass
     public void tearDownClass(){
         System.out.println("-----> AfterClass is running!");
-
     }
 
     @BeforeMethod

@@ -5,34 +5,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class DataProvider {
     WebDriver driver;
-    List<String> titleAndUrl;
 
     @Test(dataProvider = "searchData")
-    public void test(String keyword) {
+    public void test(String keyword, String expectedUrl) {
         driver = WebDriverFactory.getDriver(1);
         driver.get("https://www.google.com");
+
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys(keyword + Keys.ENTER);
+
         driver.findElement(By.xpath("(//*[contains(text(),\"https://\")])[2]")).click();
-        titleAndUrl.add(driver.getTitle()+" / "+driver.getCurrentUrl());
+        Assert.assertEquals(driver.getCurrentUrl(),expectedUrl,keyword+" test is failed");
+
         driver.quit();
     }
 
     @org.testng.annotations.DataProvider(name = "searchData")
     public Object[][] testData() {
         return new Object[][]{
-                {"cydeo"} ,
-                {"java"} ,
-                {"selenium"} ,
-                {"testNG"} ,
-                {"migros"} ,
-                {"amazon"} ,
+                {"cydeo","https://www.cydeo.com"} ,
+                {"java","https://www.java.com"} ,
+                {"selenium","https://www.selenium.com"} ,
+                {"testNG","https://www.testng.com"} ,
+                {"migros","https://www.migros.com"} ,
+                {"amazon","https://www.amazon.com"} ,
         };
 
     }

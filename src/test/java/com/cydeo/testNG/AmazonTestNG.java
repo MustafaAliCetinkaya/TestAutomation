@@ -1,17 +1,17 @@
 package com.cydeo.testNG;
 
-import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.reusableMethods.pages.AmazonPage;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
-public class AmazonTestNG extends TestBase {
+public class AmazonTestNG extends AmazonPage {
+    AmazonPage pageObject = new AmazonPage();
 
     @Test
-    public void amazonShopping(){
+    public void amazonShopping() {
 
         driver.get("https://www.amazon.com");
-
-        AmazonPage.searchItem("nutella");
+        pageObject.searchBox.sendKeys("nutella"+ Keys.ENTER);
 
     }
 }

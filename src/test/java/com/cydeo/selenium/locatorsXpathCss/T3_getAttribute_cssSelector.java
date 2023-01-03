@@ -1,8 +1,9 @@
 package com.cydeo.selenium.locatorsXpathCss;
 
 import com.cydeo.selenium.utilities.WebDriverFactory;
-import com.cydeo.testNG.utilities.*;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class T3_getAttribute_cssSelector {
 

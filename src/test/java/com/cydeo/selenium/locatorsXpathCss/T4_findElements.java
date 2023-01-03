@@ -1,11 +1,12 @@
 package com.cydeo.selenium.locatorsXpathCss;
 
 import com.cydeo.selenium.utilities.WebDriverFactory;
-import com.cydeo.testNG.utilities.*;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import java.util.*;
-import java.util.concurrent.*;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class T4_findElements {
 

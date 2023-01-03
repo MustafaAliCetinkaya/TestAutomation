@@ -1,9 +1,11 @@
 package com.cydeo.testNG;
 
-import org.testng.*;
+import com.cydeo.selenium.utilities.WebDriverFactory;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
-
 public class TestNG_Intro {
+    WebDriver driver= WebDriverFactory.getDriver("chrome");
 
     @Test (priority = 1)
     public void test1(){
@@ -12,9 +14,13 @@ public class TestNG_Intro {
         //ASSERT EQUALS: compare 2 of the same things
         String actual = "apple";
         String expected = "apple";
-
         Assert.assertEquals(actual, expected);
 
+
+        driver.get("https://www.google.com/");
+        Assert.assertEquals(driver.getTitle(),"Google","Title test1 passed");
+        Assert.assertEquals(driver.getCurrentUrl(),"https://www.google.com/");
+        driver.close();
     }
 
     @Test (priority = 2)
@@ -24,9 +30,12 @@ public class TestNG_Intro {
         //AssertTrue
         String actual = "apple";
         String expected = "apple";
-
         Assert.assertTrue(actual.equals(expected), "your message will go here");
 
+        driver.get("https://cydeo.com");
+        String expectedTitle="Cydeo";
+        String actualTitle=driver.getTitle();
+        Assert.assertTrue(actualTitle.equalsIgnoreCase(expectedTitle),"Title test2 passed");
     }
 
     @BeforeClass

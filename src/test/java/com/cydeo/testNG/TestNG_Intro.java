@@ -14,7 +14,7 @@ public class TestNG_Intro {
         //ASSERT EQUALS: compare 2 of the same things
         String actual = "apple";
         String expected = "apple";
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);//This is hard assertion. If the previous test is failed, remaining code will not be executed in the block.
 
 
         driver.get("https://www.google.com/");
@@ -59,5 +59,4 @@ public class TestNG_Intro {
     public void tearDownMethod(){
         System.out.println("---> AfterMethod is running!");
     }
-
 }

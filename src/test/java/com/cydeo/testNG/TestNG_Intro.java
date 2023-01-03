@@ -10,7 +10,8 @@ public class TestNG_Intro {
     @BeforeClass
     public void setupMethod(){
         System.out.println("-----> BeforeClass is running!");
-        SoftAssert softAssert=new SoftAssert();
+
+        SoftAssert softAssert=new SoftAssert();//This is soft assertion. Even if the previous test is failed, remaining code will be executed in the block.
         softAssert.assertNotEquals(6,7);
         System.out.println("softAssert test1 is passed");
         softAssert.assertEquals(45,45);

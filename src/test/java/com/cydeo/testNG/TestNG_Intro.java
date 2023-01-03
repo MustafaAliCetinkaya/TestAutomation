@@ -16,6 +16,11 @@ public class TestNG_Intro {
         softAssert.assertEquals(45,45);
         System.out.println("softAssert test2 is passed");
     }
+
+    @BeforeMethod
+    public void setUpMethod(){
+        System.out.println("---> BeforeMethod is running!");
+    }
     WebDriver driver= WebDriverFactory.getDriver("chrome");
 
     @Test (priority = 1)
@@ -50,20 +55,14 @@ public class TestNG_Intro {
         driver.quit();
     }
 
-
+    @AfterMethod
+    public void tearDownMethod(){
+        System.out.println("---> AfterMethod is running!");
+    }
 
     @AfterClass
     public void tearDownClass(){
         System.out.println("-----> AfterClass is running!");
     }
-
-    @BeforeMethod
-    public void setUpMethod(){
-        System.out.println("---> BeforeMethod is running!");
-    }
-
-    @AfterMethod
-    public void tearDownMethod(){
-        System.out.println("---> AfterMethod is running!");
-    }
 }
+

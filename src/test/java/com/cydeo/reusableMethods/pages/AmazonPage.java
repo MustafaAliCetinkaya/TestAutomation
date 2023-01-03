@@ -11,7 +11,7 @@ public class AmazonPage {
 
     public AmazonPage() {
         WebDriver driver=WebDriverFactory.getDriver(1);
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver,this);
         driver.get("https://www.amazon.com");
     }
 

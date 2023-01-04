@@ -9,6 +9,7 @@ public class CydeoTestNG extends CydeoPage {
     @Test
     public void cydeoTest(){
         driver.get("https://cydeo.com");
+
         String expectedTitle = "Cydeo";
         String actualTitle = driver.getTitle();
 

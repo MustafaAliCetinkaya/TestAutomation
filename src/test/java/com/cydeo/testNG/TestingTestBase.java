@@ -9,66 +9,96 @@ import java.util.List;
 
 public class TestingTestBase extends TestBase {
 
-    @Test
+    @Test(priority =5)
     public void test1() {
         driver.get("https://www.amazon.com");
         System.out.println(driver.getTitle() + " : " +
                 driver.getCurrentUrl() + "\n Page Headers: " +
-                driver.findElements(By.tagName("h1")));
+                driver.findElements(By.tagName("h2")));
 
-        List<WebElement> AllIdentities = driver.findElements(By.tagName("id"));
+        List<WebElement> AllIdentities = driver.findElements(By.tagName("div"));
+        System.out.println("AllIdentities.size() = " + AllIdentities.size());
+        int count = 1;
         for (WebElement each : AllIdentities) {
-            int count = 1;
             String eachId = each.getAttribute("id");
-            System.out.println(count + ". id is: " + eachId);
+            System.out.println( !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: NOT ASSIGNED. EMPTY!" );
             count++;
         }
     }
 
-    @Test
+    @Test(priority =4)
     public void test2() {
         driver.get("https://www.google.com");
         System.out.println(driver.getTitle() + " : " +
                 driver.getCurrentUrl() + "\n Page Headers: " +
-                driver.findElements(By.tagName("h1")));
+                driver.findElements(By.tagName("h2")));
 
-        List<WebElement> AllIdentities = driver.findElements(By.tagName("id"));
+        List<WebElement> AllIdentities = driver.findElements(By.tagName("div"));
+        System.out.println("AllIdentities.size() = " + AllIdentities.size());
+        int count = 1;
         for (WebElement each : AllIdentities) {
-            int count = 1;
             String eachId = each.getAttribute("id");
-            System.out.println(count + ". id is: " + eachId);
+            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
+            System.out.println(result);
             count++;
         }
     }
 
-    @Test
+    @Test(priority =3)
     public void test3() {
         driver.get("https://www.selenium.dev");
         System.out.println(driver.getTitle() + " : " +
                 driver.getCurrentUrl() + "\n Page Headers: " +
-                driver.findElements(By.tagName("h1")));
+                driver.findElements(By.tagName("h2")));
 
-        List<WebElement> AllIdentities = driver.findElements(By.tagName("id"));
+        List<WebElement> AllIdentities = driver.findElements(By.tagName("div"));
+        System.out.println("AllIdentities.size() = " + AllIdentities.size());
+        int count = 1;
         for (WebElement each : AllIdentities) {
-            int count = 1;
             String eachId = each.getAttribute("id");
-            System.out.println(count + ". id is: " + eachId);
+            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
+            System.out.println(result);
             count++;
         }
     }
 
-    @Test
+    @Test(priority =2)
     public void test4() {
         driver.get("https://testng.org/doc/");
         System.out.println(driver.getTitle() + " : " +
                 driver.getCurrentUrl() + "\n Page Headers: " +
-                driver.findElements(By.tagName("h1")));
+                driver.findElements(By.tagName("h2")));
 
-        List<WebElement> AllIdentities = driver.findElements(By.tagName("id"));
+        List<WebElement> AllIdentities = driver.findElements(By.tagName("div"));
+        System.out.println("AllIdentities.size() = " + AllIdentities.size());
+        int count = 1;
         for (WebElement each : AllIdentities) {
-            int count = 1;
             String eachId = each.getAttribute("id");
-            System.out.println(count + ". id is: " + eachId);
+            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
+            System.out.println(result);
+            count++;
+        }
+    }
+
+    @Test (priority =1)
+    public void test5() {
+        driver.get("http://practice.cydeo.com/radio_buttons");
+        System.out.println(driver.getTitle() + " : " +
+                driver.getCurrentUrl() + "\n Page Headers: " +
+                driver.findElements(By.tagName("h2")));
+
+        List<WebElement> AllIdentities = driver.findElements(By.tagName("div"));
+        System.out.println("AllIdentities.size() = " + AllIdentities.size());
+        int count = 1;
+        for (WebElement each : AllIdentities) {
+            String eachId = each.getAttribute("id");
+            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
+            System.out.println(result);
             count++;
         }
     }

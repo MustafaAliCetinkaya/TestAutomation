@@ -1,6 +1,6 @@
 package com.cydeo.selenium.locatorsXpathCss;
 
-import com.cydeo.utilities.Driver;
+import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class Migros {
     public static void main(String[] args) {
-        WebDriver driver = Driver.getDriver();
+        WebDriver driver = WebDriverFactory.getDriver(1);
         //Go to the market site
         driver.get("https://www.migros.com.tr/");
         //Accept cookies
@@ -31,15 +31,15 @@ public class Migros {
         driver.findElement(By.xpath("//span[.='Mağaza']")).click();
         driver.findElement(By.xpath("//span[.=' ARMADA ']")).click();
         //Find the Dr.Oetker brands group. Add the first item and then select the number of items
-        driver.findElement(By.xpath("//label[@for=\"mat-mdc-checkbox-29-input\"]")).click();//Find the Dr.Oetker brands group.
+        driver.findElement(By.xpath("//label[@for=\"mat-mdc-checkbox-29-input\"]")).click();//Find the Dankek brands group.
 
 
-        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cilekli-55-g-p-4dad17']")).click();//Add first item on the list
+        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--dankek-mozaik-baton-kek-200-g-p-6b14e7']")).click();//Add first item on the list
+        //driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cilekli-55-g-p-4dad17']")).click();//Add first item on the list
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cikolatali-55-g-p-4dcd21']")).click();//Add first item on the list
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-muzlu-55-g-p-4dc46d']")).click();//Add first item on the list
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-findikli-52-g-p-6b1d0a']")).click();//Add first item on the list
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--dankek-meyveli-baton-kek-200-g-p-6b14e8']")).click();//Add first item on the list
-        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--dankek-mozaik-baton-kek-200-g-p-6b14e7']")).click();//Add first item on the list
 
 
         //Go to cart

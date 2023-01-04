@@ -4,6 +4,8 @@ import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.*;
 
+import java.util.concurrent.TimeUnit;
+
 public class Migros extends TestBase {
     public static void main(String[] args) {
         WebDriver driver = WebDriverFactory.getDriver(1);
@@ -31,24 +33,20 @@ public class Migros extends TestBase {
         //Find the Dr.Oetker brands group. Add the first item and then select the number of items
         driver.findElement(By.xpath("//label[@for=\"mat-mdc-checkbox-29-input\"]")).click();//Find the Dankek brands group.
 
-
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--dankek-mozaik-baton-kek-200-g-p-6b14e7']")).click();//Add first item on the list
-        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cikolatali-55-g-p-4dcd21']")).click();//Add first item on the list
-        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-muzlu-55-g-p-4dc46d']")).click();//Add first item on the list
-        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-findikli-52-g-p-6b1d0a']")).click();//Add first item on the list
-
 
         //Go to cart
         driver.findElement(By.cssSelector("#homepage-cart-button")).click();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click()",driver.findElement(By.xpath("//Button[.='Sepete Git']")));
         js.executeScript("arguments[0].click()",driver.findElement(By.xpath("(//button[@aria-label=\"Sepetteki ürün sayısını arttır\"])[1]")));
-        js.executeScript("arguments[0].click()",driver.findElement(By.xpath("(//button[@aria-label=\"Sepetteki ürün sayısını arttır\"])[3]")));
 
 
         //Go to payment page
-        js.executeScript("arguments[0].click()",driver.findElement(By.cssSelector("#checkout-summary-desktop-confirm-button")));
-        driver.findElement(By.xpath("//span[.=' Üye olmadan devam et ']")).click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);//Wait for uploading
+        driver.findElement(By.cssSelector("button#checkout-summary-desktop-confirm-button")).click();
+        driver.findElement(By.cssSelector("button.subtitle-2.text-color-grey.continue-without-register.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base")).click();
+
 
         //Enter your personal information
         driver.findElement(By.cssSelector("#mat-input-1")).sendKeys("Mustafa Ali");

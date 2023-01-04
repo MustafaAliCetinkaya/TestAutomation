@@ -39,9 +39,8 @@ public class TestingTestBase extends TestBase {
         int count = 1;
         for (WebElement each : AllIdentities) {
             String eachId = each.getAttribute("id");
-            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
-                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
-            System.out.println(result);
+            System.out.println( !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: NOT ASSIGNED. EMPTY!" );
             count++;
         }
     }
@@ -58,9 +57,8 @@ public class TestingTestBase extends TestBase {
         int count = 1;
         for (WebElement each : AllIdentities) {
             String eachId = each.getAttribute("id");
-            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
-                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
-            System.out.println(result);
+            System.out.println( !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: NOT ASSIGNED. EMPTY!" );
             count++;
         }
     }
@@ -77,9 +75,8 @@ public class TestingTestBase extends TestBase {
         int count = 1;
         for (WebElement each : AllIdentities) {
             String eachId = each.getAttribute("id");
-            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
-                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
-            System.out.println(result);
+            System.out.println( !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: NOT ASSIGNED. EMPTY!" );
             count++;
         }
     }
@@ -96,9 +93,8 @@ public class TestingTestBase extends TestBase {
         int count = 1;
         for (WebElement each : AllIdentities) {
             String eachId = each.getAttribute("id");
-            String result = !(eachId.isEmpty()||eachId.isBlank()) ?
-                    count + ". id is: " + eachId : count + ". id is: EMPTY!";
-            System.out.println(result);
+            System.out.println( !(eachId.isEmpty()||eachId.isBlank()) ?
+                    count + ". id is: " + eachId : count + ". id is: NOT ASSIGNED. EMPTY!" );
             count++;
         }
     }

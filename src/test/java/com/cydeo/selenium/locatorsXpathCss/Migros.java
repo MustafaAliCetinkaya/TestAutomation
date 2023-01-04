@@ -1,12 +1,10 @@
 package com.cydeo.selenium.locatorsXpathCss;
 
+import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.WebDriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
-public class Migros {
+public class Migros extends TestBase {
     public static void main(String[] args) {
         WebDriver driver = WebDriverFactory.getDriver(1);
         //Go to the market site
@@ -35,19 +33,21 @@ public class Migros {
 
 
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--dankek-mozaik-baton-kek-200-g-p-6b14e7']")).click();//Add first item on the list
-        //driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cilekli-55-g-p-4dad17']")).click();//Add first item on the list
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cikolatali-55-g-p-4dcd21']")).click();//Add first item on the list
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-muzlu-55-g-p-4dc46d']")).click();//Add first item on the list
         driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-findikli-52-g-p-6b1d0a']")).click();//Add first item on the list
-        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--dankek-meyveli-baton-kek-200-g-p-6b14e8']")).click();//Add first item on the list
 
 
         //Go to cart
         driver.findElement(By.cssSelector("#homepage-cart-button")).click();
-        driver.findElement(By.xpath("//Button[.='Sepete Git']")).click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()",driver.findElement(By.xpath("//Button[.='Sepete Git']")));
+        js.executeScript("arguments[0].click()",driver.findElement(By.xpath("(//button[@aria-label=\"Sepetteki ürün sayısını arttır\"])[1]")));
+        js.executeScript("arguments[0].click()",driver.findElement(By.xpath("(//button[@aria-label=\"Sepetteki ürün sayısını arttır\"])[3]")));
+
 
         //Go to payment page
-        driver.findElement(By.cssSelector("#checkout-summary-desktop-confirm-button")).click();
+        js.executeScript("arguments[0].click()",driver.findElement(By.cssSelector("#checkout-summary-desktop-confirm-button")));
         driver.findElement(By.xpath("//span[.=' Üye olmadan devam et ']")).click();
 
         //Enter your personal information
@@ -56,6 +56,5 @@ public class Migros {
         driver.findElement(By.cssSelector("#mat-input-3")).sendKeys("I signed the task. Enough for practice!");
 
         System.out.println("We are done without any error!");
-        driver.close();
     }
 }

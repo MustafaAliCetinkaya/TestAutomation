@@ -1,4 +1,4 @@
-package com.cydeo.testNG;
+package com.cydeo.testNG.practices;
 
 import com.cydeo.reusableMethods.pages.MigrosPage;
 import org.testng.Assert;

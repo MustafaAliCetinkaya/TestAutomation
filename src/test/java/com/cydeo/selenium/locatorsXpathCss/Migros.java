@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.concurrent.TimeUnit;
 
 public class Migros {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         WebDriver driver = Driver.getDriver();
         //Go to the market site
         driver.get("https://www.migros.com.tr/");

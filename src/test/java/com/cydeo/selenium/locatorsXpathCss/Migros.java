@@ -34,6 +34,7 @@ public class Migros {
         driver.findElement(By.xpath("//label[@for=\"mat-mdc-checkbox-29-input\"]")).click();//Find the Dr.Oetker brands group.
 
         for (int i = 0; i < 4; i++) {
+
             Thread.sleep(4000);
             driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cilekli-55-g-p-4dad17']")).click();//Add first item on the list
             driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cikolatali-55-g-p-4dcd21']")).click();//Add first item on the list

@@ -6,10 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
-
 public class Migros {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriver driver = Driver.getDriver();
         //Go to the market site
         driver.get("https://www.migros.com.tr/");
@@ -40,12 +38,14 @@ public class Migros {
 
         //Go to cart
         for (int i = 0; i < 3; i++) {
-            driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);//Wait for uploading
+            Thread.sleep(10000);
+            //driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);//Wait for uploading
             driver.findElement(By.cssSelector("#homepage-cart-button")).click();
         }
 
         for (int i = 0; i < 4; i++) {
-            driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);//Wait for uploading
+            Thread.sleep(10000);
+            //driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);//Wait for uploading
             driver.findElement(By.xpath("//Button[.='Sepete Git']")).click();
         }
 

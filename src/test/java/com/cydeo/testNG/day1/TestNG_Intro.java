@@ -1,4 +1,4 @@
-package com.cydeo.testNG;
+package com.cydeo.testNG.day1;
 
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;

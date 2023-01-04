@@ -1,4 +1,4 @@
-package com.cydeo.testNG;
+package com.cydeo.testNG.day1;
 
 import com.cydeo.reusableMethods.base.TestBase;
 import org.openqa.selenium.By;

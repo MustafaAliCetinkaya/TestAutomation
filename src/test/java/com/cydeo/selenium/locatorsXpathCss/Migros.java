@@ -1,35 +1,27 @@
 package com.cydeo.selenium.locatorsXpathCss;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
 
 public class Migros {
-    public static void main(String[] args) {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
+    public static void main(String[] args) throws InterruptedException {
+        WebDriver driver = Driver.getDriver();
         //Go to the market site
         driver.get("https://www.migros.com.tr/");
         //Accept cookies
         driver.findElement(By.xpath("//button[.='Tümünü Kabul Et']")).click();
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//Wait for uploading
-
 
         //Find the search box and search for kek
         WebElement searchBox = driver.findElement(By.xpath("//input[@id='product-search-combobox--trigger']"));
         searchBox.sendKeys("kek" + Keys.ENTER);
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//Wait for uploading
+        //driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//Wait for uploading
         //First item will be added after clicking the mandatory fields
         //First things first, fill the related checkboxes
         WebElement firstItem = driver.findElement(By.xpath("//div[@class='bottom-row']//fa-icon[@id='product-actions-add-to-cart-button--kekstra-konfeti-muffin-kek-kakaolu-38-g-p-4dad0d']"));
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//Wait for uploading
+        //driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//Wait for uploading
         firstItem.click();
         driver.findElement(By.xpath("//div[.='Tıkla Gel Al']")).click();
         driver.findElement(By.xpath("//span[.='İl']")).click();
@@ -39,14 +31,12 @@ public class Migros {
         driver.findElement(By.xpath("//span[.='Mağaza']")).click();
         driver.findElement(By.xpath("//span[.=' ARMADA ']")).click();
         //Find the Dr.Oetker brands group. Add the first item and then select the number of items
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//Wait for uploading
-        driver.findElement(By.xpath("//input[@id='mat-mdc-checkbox-32-input']")).click();//Find the Dr.Oetker brands group.
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//Wait for uploading
-        driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--droetker-limonlu-kek-karisimi-440-g-p-4cebd2']")).click();//Add first item on the list
+        driver.findElement(By.xpath("//label[@for=\"mat-mdc-checkbox-29-input\"]")).click();//Find the Dr.Oetker brands group.
 
-        for (int i = 0; i < 24; i++) {
-            driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);//Wait for uploading
-            driver.findElement(By.cssSelector("#product-actions-product-increase--droetker-limonlu-kek-karisimi-440-g-p-4cebd2")).click();
+        for (int i = 0; i < 4; i++) {
+            Thread.sleep(4000);
+            driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cilekli-55-g-p-4dad17']")).click();//Add first item on the list
+            driver.findElement(By.xpath("//fa-icon[@id='product-actions-add-to-cart-button--8-kek-cikolatali-55-g-p-4dcd21']")).click();//Add first item on the list
         }
 
         //Go to cart
@@ -63,6 +53,6 @@ public class Migros {
         driver.findElement(By.cssSelector("#mat-input-3")).sendKeys("I signed the task. Enough for practice!");
 
         System.out.println("We are done without any error!");
-        //driver.close();
+        driver.close();
     }
 }

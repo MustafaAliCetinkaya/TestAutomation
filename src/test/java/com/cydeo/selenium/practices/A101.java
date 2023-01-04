@@ -1,4 +1,4 @@
-package com.cydeo.selenium.locatorsXpathCss;
+package com.cydeo.selenium.practices;
 
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;

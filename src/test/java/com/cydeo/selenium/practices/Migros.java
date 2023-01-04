@@ -1,4 +1,4 @@
-package com.cydeo.selenium.locatorsXpathCss;
+package com.cydeo.selenium.practices;
 
 import com.cydeo.reusableMethods.ReusableMethods;
 import com.cydeo.reusableMethods.base.TestBase;

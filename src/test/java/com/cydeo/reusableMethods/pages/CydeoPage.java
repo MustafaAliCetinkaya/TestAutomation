@@ -196,7 +196,9 @@ public class CydeoPage {
         goToCart.click();
         System.out.println("Page title is = " + driver.getTitle());
         ReusableMethods.hover(driver,increaseQuantity);
-        ReusableMethods.clickWithTimeOut(increaseQuantity,20);
+        ReusableMethods.clickWithTimeOut(increaseQuantity,3);
+
+        Thread.sleep(5000);
 
         checkout.click();
         System.out.println("Page title is = " + driver.getTitle());

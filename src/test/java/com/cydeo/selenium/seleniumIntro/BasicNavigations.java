@@ -1,5 +1,6 @@
 package com.cydeo.selenium.seleniumIntro;
 
+import com.cydeo.reusableMethods.methods.ReusableMethods;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,9 +13,10 @@ public class BasicNavigations {
         //get and navigate are have same function but navigate has more options/features
 
         //Stop code execution for 3 seconds
-        Thread.sleep(3000);
+        Thread.sleep(1);
 
         driver.get("https://mustafaalicetinkaya.github.io/MustafaAliCetinkaya/index.htm");
+        ReusableMethods.waitForPageToLoad(driver,1);
 
         //Stop code execution for 3 seconds
         Thread.sleep(3000);

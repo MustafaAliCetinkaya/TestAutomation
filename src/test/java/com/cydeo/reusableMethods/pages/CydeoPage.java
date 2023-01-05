@@ -1,5 +1,6 @@
 package com.cydeo.reusableMethods.pages;
 
+import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -49,6 +50,9 @@ public class CydeoPage {
 
     @FindBy(xpath = "//button[@name='add']")
     public static WebElement addToCart;
+
+    @FindBy(xpath = "(//button[@class='quantity__button no-js-hidden'])[2]")
+    public static WebElement increaseQuantity;
 
     @FindBy(xpath = "//a[@id='cart-icon-bubble']")
     public static WebElement goToCart;
@@ -191,6 +195,8 @@ public class CydeoPage {
 
         goToCart.click();
         System.out.println("Page title is = " + driver.getTitle());
+        ReusableMethods.hover(increaseQuantity);
+        ReusableMethods.clickWithTimeOut(increaseQuantity,20);
 
         checkout.click();
         System.out.println("Page title is = " + driver.getTitle());

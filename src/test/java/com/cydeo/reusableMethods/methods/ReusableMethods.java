@@ -1,10 +1,9 @@
 package com.cydeo.reusableMethods.methods;
 
 import com.cydeo.utilities.Driver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -23,6 +22,7 @@ public class ReusableMethods {
         Assert.assertEquals(actualUrl,expectedUrl, "This is a failure message. URL is not matching!");
     }
 
+    //========Switching Window=====//
     public static void switchToWindows(WebDriver driver){
         Set<String> AllHandles=driver.getWindowHandles();
         for (String eachHandle : AllHandles) {
@@ -30,6 +30,12 @@ public class ReusableMethods {
             driver.switchTo().window(eachHandle);
             System.out.println("Current title while switching windows: " + driver.getTitle());
         }
+    }
+
+    //========Hover Over=====//
+    public static void hover(WebElement element) {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(element).perform();
     }
 
     public static WebElement waitForVisibility(WebElement element, int timeout) {
@@ -55,6 +61,23 @@ public class ReusableMethods {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public static void scrollDownToElement(WebElement element) {
+        ReusableMethods.waitFor(3);
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].click();", element);
+    }
+
+
+    public static void jsClick(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();", element);
+        try {
+            element.click();
+        } catch (Exception e) {
+            JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+            executor.executeScript("arguments[0].click();", element);
+        }
+    }
 
     //   HARD WAIT WITH THREAD.SLEEP
     public static void waitFor(int sec) {
@@ -65,6 +88,21 @@ public class ReusableMethods {
         }
     }
 
+    public static void waitForPageToLoad(WebDriver driver,long timeout) {
+        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+            }
+        };
+        try {
+            System.out.println("Waiting for page to load...");
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            wait.until(expectation);
+        } catch (Throwable error) {
+            System.out.println(
+                    "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
+        }
+    }
 
     public static void clickWithTimeOut(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {

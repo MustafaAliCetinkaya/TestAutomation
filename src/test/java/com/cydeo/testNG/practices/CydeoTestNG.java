@@ -17,9 +17,7 @@ public class CydeoTestNG extends CydeoPage {
         Assert.assertEquals(actualTitle,expectedTitle, "This is a failure message. Title is not matching!");
 
         navigateThePage();
-
-        ReusableMethods.switchToWindows();
-
+        ReusableMethods.switchToWindows(driver);
         cydeoShopDropDownTest();
         cydeoShopping();
         onlyIdAttributes();

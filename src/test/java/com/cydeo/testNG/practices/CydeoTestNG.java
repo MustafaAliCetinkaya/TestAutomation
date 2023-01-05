@@ -1,10 +1,9 @@
 package com.cydeo.testNG.practices;
 
+import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.reusableMethods.pages.CydeoPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 public class CydeoTestNG extends CydeoPage {
 
@@ -19,10 +18,7 @@ public class CydeoTestNG extends CydeoPage {
 
         navigateThePage();
 
-        Set<String> AllHandles=driver.getWindowHandles();
-        for (String eachHandle : AllHandles) {
-            driver.switchTo().window(eachHandle);
-        }
+        ReusableMethods.switchToWindows(driver);
 
         cydeoShopDropDownTest();
         cydeoShopping();

@@ -33,8 +33,8 @@ public class ReusableMethods {
     }
 
     //========Hover Over=====//
-    public static void hover(WebElement element) {
-        Actions actions = new Actions(Driver.getDriver());
+    public static void hover(WebDriver driver,WebElement element) {
+        Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
     }
 
@@ -68,8 +68,8 @@ public class ReusableMethods {
     }
 
 
-    public static void jsClick(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+    public static void jsClick(WebDriver driver,WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
         try {
             element.click();

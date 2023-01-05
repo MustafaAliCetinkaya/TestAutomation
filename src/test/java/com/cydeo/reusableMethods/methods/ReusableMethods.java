@@ -19,8 +19,8 @@ public class ReusableMethods {
     }
 
     public static void verifyPageUrl(WebDriver driver,String expectedUrl){
-        String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle,expectedUrl, "This is a failure message. URL is not matching!");
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,expectedUrl, "This is a failure message. URL is not matching!");
     }
 
     public static void switchToWindows(WebDriver driver){

@@ -16,7 +16,7 @@ public class ReusableMethods {
         Set<String> AllHandles=driver.getWindowHandles();
         for (String eachHandle : AllHandles) {
             driver.switchTo().window(eachHandle);
-            System.out.println(driver.getTitle());
+            System.out.println("Current title while switching windows: " + driver.getTitle());
         }
     }
 

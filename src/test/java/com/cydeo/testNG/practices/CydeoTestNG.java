@@ -18,7 +18,7 @@ public class CydeoTestNG extends CydeoPage {
 
         navigateThePage();
 
-        ReusableMethods.switchToWindows(driver);
+        ReusableMethods.switchToWindows();
 
         cydeoShopDropDownTest();
         cydeoShopping();

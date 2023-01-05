@@ -50,8 +50,11 @@ public class CydeoPage {
     @FindBy(xpath = "//button[@name='add']")
     public static WebElement addToCart;
 
-    @FindBy(xpath = "a[@href='/cart']")
+    @FindBy(xpath = "//a[@id='cart-icon-bubble']")
     public static WebElement goToCart;
+
+    @FindBy(xpath = "(//h3//a[contains(text(),'Long Sleeve')][2])")
+    public static WebElement longSleeve;
 
     @FindAll({@FindBy(xpath = "//div")})
     public static List<WebElement> allElements;
@@ -81,8 +84,8 @@ public class CydeoPage {
         javaDeveloper.click();
         System.out.println("Page title is = " + driver.getTitle());
 
-       /* salesForce.click();
-        System.out.println("Page title is = " + driver.getTitle());*/
+        salesForce.click();
+        System.out.println("Page title is = " + driver.getTitle());
 
         about.click();
         System.out.println("Page title is = " + driver.getTitle());
@@ -121,7 +124,7 @@ public class CydeoPage {
 
     }
 
-    public static void cydeoShopping() {
+    public static void cydeoShopping() throws InterruptedException {
 
         addToCart.click();
 
@@ -135,8 +138,15 @@ public class CydeoPage {
         sizeDropDown.selectByIndex(1);
         addToCart.click();
 
+        Thread.sleep(5000);
+
         colorDropDown.selectByValue("True Royal Triblend");
         sizeDropDown.selectByValue("2XL");
+        addToCart.click();
+
+        Thread.sleep(5000);
+
+        longSleeve.click();
         addToCart.click();
 
         goToCart.click();

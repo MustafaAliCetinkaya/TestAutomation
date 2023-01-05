@@ -53,8 +53,14 @@ public class CydeoPage {
     @FindBy(xpath = "//a[@id='cart-icon-bubble']")
     public static WebElement goToCart;
 
-    @FindBy(xpath = "(//h3//a[contains(text(),'Long Sleeve')][2])")
+    @FindBy(xpath = "(//a[@class='full-unstyled-link'])[2]")
     public static WebElement longSleeve;
+
+    @FindBy(xpath = "(//a[@class='full-unstyled-link'])[6]")
+    public static WebElement hoodies;
+
+    @FindBy(xpath = "(//a[@class='full-unstyled-link'])[8]")
+    public static WebElement youth;
 
     @FindAll({@FindBy(xpath = "//div")})
     public static List<WebElement> allElements;
@@ -126,8 +132,6 @@ public class CydeoPage {
 
     public static void cydeoShopping() throws InterruptedException {
 
-        addToCart.click();
-
         WebElement color = driver.findElement(By.xpath("//select[@name='options[Color]']"));
         Select colorDropDown = new Select(color);
 
@@ -147,6 +151,25 @@ public class CydeoPage {
         Thread.sleep(5000);
 
         longSleeve.click();
+        driver.findElement(By.xpath("(//a[contains(text(),'Unisex')])[2]")).click();
+        addToCart.click();
+        for (int i = 0; i < 2; i++) {
+            driver.navigate().back();
+        }
+
+        Thread.sleep(5000);
+
+        hoodies.click();
+        driver.findElement(By.xpath("(//a[contains(text(),'Zip')])[2]")).click();
+        addToCart.click();
+        for (int i = 0; i < 2; i++) {
+            driver.navigate().back();
+        }
+
+        Thread.sleep(5000);
+
+        youth.click();
+        driver.findElement(By.xpath("(//a[contains(text(),'long')])[2]")).click();
         addToCart.click();
 
         goToCart.click();

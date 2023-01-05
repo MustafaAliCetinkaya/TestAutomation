@@ -152,6 +152,18 @@ public class CydeoPage {
 
         Thread.sleep(5000);
 
+        colorDropDown.selectByIndex(3);
+        sizeDropDown.selectByIndex(4);
+        addToCart.click();
+
+        Thread.sleep(5000);
+
+        colorDropDown.selectByIndex(4);
+        sizeDropDown.selectByIndex(5);
+        addToCart.click();
+
+        Thread.sleep(5000);
+
         longSleeve.click();
         System.out.println("Page title is = " + driver.getTitle());
         driver.findElement(By.xpath("(//a[contains(text(),'Unisex')])[2]")).click();

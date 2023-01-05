@@ -2,7 +2,6 @@ package com.cydeo.testNG.practices;
 
 import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.reusableMethods.pages.CydeoPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CydeoTestNG extends CydeoPage {
@@ -11,13 +10,10 @@ public class CydeoTestNG extends CydeoPage {
     public void cydeoTest() throws InterruptedException {
         driver.get("https://cydeo.com");
 
-        String expectedTitle = "Cydeo";
-        String actualTitle = driver.getTitle();
-
-        Assert.assertEquals(actualTitle,expectedTitle, "This is a failure message. Title is not matching!");
+        ReusableMethods.verifyPageTitle(driver, "Cydeo");
 
         navigateThePage();
-        ReusableMethods.switchToWindows(driver);
+        ReusableMethods.switchToWindows(driver);//Switches to new tab
         cydeoShopDropDownTest();
         cydeoShopping();
         onlyIdAttributes();

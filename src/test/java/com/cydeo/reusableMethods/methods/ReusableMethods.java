@@ -7,14 +7,26 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.util.Set;
 
 public class ReusableMethods {
 
+    public static void verifyPageTitle(WebDriver driver,String expectedTitle){
+        String actualTitle = driver.getTitle();
+        Assert.assertEquals(actualTitle,expectedTitle, "This is a failure message. Title is not matching!");
+    }
+
+    public static void verifyPageUrl(WebDriver driver,String expectedUrl){
+        String actualTitle = driver.getTitle();
+        Assert.assertEquals(actualTitle,expectedUrl, "This is a failure message. URL is not matching!");
+    }
+
     public static void switchToWindows(WebDriver driver){
         Set<String> AllHandles=driver.getWindowHandles();
         for (String eachHandle : AllHandles) {
+            System.out.println("Each Handle = " + eachHandle);
             driver.switchTo().window(eachHandle);
             System.out.println("Current title while switching windows: " + driver.getTitle());
         }

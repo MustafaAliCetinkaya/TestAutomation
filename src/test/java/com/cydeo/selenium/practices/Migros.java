@@ -1,6 +1,6 @@
 package com.cydeo.selenium.practices;
 
-import com.cydeo.reusableMethods.ReusableMethods;
+import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.*;

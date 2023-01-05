@@ -1,4 +1,4 @@
-package com.cydeo.reusableMethods;
+package com.cydeo.reusableMethods.methods;
 
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;

@@ -62,6 +62,9 @@ public class CydeoPage {
     @FindBy(xpath = "(//a[@class='full-unstyled-link'])[8]")
     public static WebElement youth;
 
+    @FindBy(css = "button#checkout")
+    public static WebElement checkout;
+
     @FindAll({@FindBy(xpath = "//div")})
     public static List<WebElement> allElements;
 
@@ -173,5 +176,8 @@ public class CydeoPage {
         addToCart.click();
 
         goToCart.click();
+        checkout.click();
+
+        driver.findElement(By.cssSelector("input#email")).sendKeys("Enough for practice!");
     }
 }

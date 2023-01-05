@@ -152,7 +152,7 @@ public class CydeoPage {
 
         Thread.sleep(5000);
 
-        colorDropDown.selectByIndex(3);
+        colorDropDown.selectByIndex(2);
         sizeDropDown.selectByIndex(4);
         addToCart.click();
 

@@ -118,7 +118,6 @@ public class CydeoPage {
         //Verify default selected option.
         String expectedOptionText = "Solid Black Triblend";
         String actualOptionText = colorDropDown.getFirstSelectedOption().getText();
-        System.out.println(actualOptionText);
 
         Assert.assertEquals(actualOptionText, expectedOptionText, "Default selected color option test is failed!");
 
@@ -154,6 +153,7 @@ public class CydeoPage {
         Thread.sleep(5000);
 
         longSleeve.click();
+        System.out.println("Page title is = " + driver.getTitle());
         driver.findElement(By.xpath("(//a[contains(text(),'Unisex')])[2]")).click();
         addToCart.click();
         for (int i = 0; i < 2; i++) {
@@ -163,6 +163,7 @@ public class CydeoPage {
         Thread.sleep(5000);
 
         hoodies.click();
+        System.out.println("Page title is = " + driver.getTitle());
         driver.findElement(By.xpath("(//a[contains(text(),'Zip')])[2]")).click();
         addToCart.click();
         for (int i = 0; i < 2; i++) {
@@ -172,11 +173,15 @@ public class CydeoPage {
         Thread.sleep(5000);
 
         youth.click();
+        System.out.println("Page title is = " + driver.getTitle());
         driver.findElement(By.xpath("(//a[contains(text(),'long')])[2]")).click();
         addToCart.click();
 
         goToCart.click();
+        System.out.println("Page title is = " + driver.getTitle());
+
         checkout.click();
+        System.out.println("Page title is = " + driver.getTitle());
 
         driver.findElement(By.cssSelector("input#email")).sendKeys("Enough for practice!");
     }

@@ -28,6 +28,6 @@ public class CydeoTestNG extends CydeoPage {
         cydeoShopping();
         onlyIdAttributes();
 
-        //driver.quit();
+        driver.quit();
     }
 }

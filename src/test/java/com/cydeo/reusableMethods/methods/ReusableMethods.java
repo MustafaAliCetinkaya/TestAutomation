@@ -74,7 +74,7 @@ public class ReusableMethods {
         try {
             element.click();
         } catch (Exception e) {
-            JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+            JavascriptExecutor executor = (JavascriptExecutor) driver;
             executor.executeScript("arguments[0].click();", element);
         }
     }
@@ -85,6 +85,19 @@ public class ReusableMethods {
             Thread.sleep(sec * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void forceToClick(WebDriver driver,WebElement element){
+
+        for (int i = 0; i <= 2; i++) {
+            try {
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click();", element);
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 

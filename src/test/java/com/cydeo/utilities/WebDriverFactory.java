@@ -37,7 +37,7 @@ public class WebDriverFactory {
     }
 
     public static WebDriver getDriver(int browserNumber) {
-        WebDriver driver;
+         WebDriver driver;
 
         switch (browserNumber) {
 

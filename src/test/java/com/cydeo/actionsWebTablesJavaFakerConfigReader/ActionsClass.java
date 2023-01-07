@@ -27,8 +27,8 @@ public class ActionsClass extends TestBase {
                 .clickAndHold().pause(1000)
                 .moveToElement(bigCircle).pause(1000)
                 .release().pause(1000).perform();
-        System.out.println("Text of the big circle is: " + bigCircle.getText());
-        Assert.assertEquals(bigCircle.getText(), "You did great!");
+        System.out.println("Text of the big circle is: " + driver.findElement(By.id("ctl00_ContentPlaceholder1_droptarget")).getText());
+        Assert.assertEquals(driver.findElement(By.id("ctl00_ContentPlaceholder1_droptarget")).getText(), "You did great!");
 
     }
 
@@ -50,19 +50,21 @@ public class ActionsClass extends TestBase {
 
         Actions action = new Actions(driver);
 
-        action.moveToElement(smallCircle).clickAndHold().pause(1000).perform();
-        System.out.println("When we click on the small circle, 'Blue' text is: " + blueSquare.getText());
-        System.out.println("When we click on the small circle, 'Orange' text is: " + orangeSquare.getText());
-        Assert.assertEquals(blueSquare.getText(), "(Drop here)");
-        Assert.assertEquals(orangeSquare.getText(), "(Drop here)");
-
         action.moveToElement(smallCircle).clickAndHold()
-                .pause(1000).moveToElement(blueSquare)
-                .pause(1000).perform();
-        System.out.println("When we hover over the 'Blue', 'Blue' text is: " + blueSquare.getText());
-        System.out.println("When we hover over the 'Blue', 'Orange' text is: " + orangeSquare.getText());
-        Assert.assertEquals(blueSquare.getText(), "Now you can drop it.");
-        Assert.assertEquals(orangeSquare.getText(), "(Drop here)");
+                .pause(1000).moveToElement(title)
+                .pause(3000).perform();
+        System.out.println("When we click on the small circle and move it, 'Blue' text is: " + driver.findElement(By.cssSelector("div.test1")).getText());
+        System.out.println("When we click on the small circle and move it, 'Orange' text is: " + driver.findElement(By.cssSelector("div.test2")).getText());
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.test1")).getText(), "(Drop here)");
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.test2")).getText(), "(Drop here)");
+
+        action.moveToElement(driver.findElement(By.id("draggable"))).clickAndHold()
+                .pause(1000).moveToElement(driver.findElement(By.cssSelector("div.test1")))
+                .pause(1000).release().perform();
+        System.out.println("When we released the 'Blue', 'Blue' text is: " + driver.findElement(By.cssSelector("div.test1")).getText());
+        System.out.println("When we released the 'Blue', 'Orange' text is: " + driver.findElement(By.cssSelector("div.test2")).getText());
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.test1")).getText(), "(Try again)");
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.test2")).getText(), "(Try again)");
 
 
     }

@@ -15,7 +15,9 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
 
         //Calling my utility method to login helpdesk1
         // Calling the static method of interface
-        NextBaseCrmPage.crm_login();
+        NextBaseCrmPage.crm_login();/*
+        You can access static methods using the interface name.
+        If your interface has a static method you need to call it using the name of the interface, just like static methods of a class.*/
 
         //6. Verify title is as expected:
         //Expected: Portal

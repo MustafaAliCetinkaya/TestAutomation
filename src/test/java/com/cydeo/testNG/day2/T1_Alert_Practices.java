@@ -51,4 +51,23 @@ public class T1_Alert_Practices {
 
         Assert.assertEquals(actualText, expectedText, "Actual result text is not as expected!!!");
     }
+
+    @Test
+    public void Task2 () throws InterruptedException {
+
+        // 3. Click to “Click for JS Confirm” button
+        WebElement JSConfirmButton = driver.findElement(By.xpath("(//button[@class='btn btn-primary']) [2]"));
+        JSConfirmButton.click();
+
+        // 4. Click to OK button from the alert
+        Alert confirmAlert = driver.switchTo().alert();
+        Thread.sleep(3000);
+        confirmAlert.accept();
+
+        // 5. Verify “You clicked: Ok” text is displayed.
+        WebElement resultText = driver.findElement(By.xpath("//p[@id='result']"));
+
+        Assert.assertEquals(resultText.getText(), "You clicked: Ok");
+
+    }
 }

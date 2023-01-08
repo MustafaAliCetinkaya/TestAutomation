@@ -13,6 +13,7 @@ public class T1_WindowHandling extends TestBase {
     public void window_handling_test(){
         //2. Go to: https://www.amazon.com
         driver.get(ConfigurationReader.getProperty("amazon"));//Reusable, dynamic
+        ReusableMethods.switchToWindows(driver);
 
         //3. Copy-paste the lines from below into your class
         ((JavascriptExecutor) driver).executeScript("window.open('https://google.com','_blank');");
@@ -20,6 +21,8 @@ public class T1_WindowHandling extends TestBase {
         ((JavascriptExecutor) driver).executeScript("window.open('https://facebook.com','_blank');");
 
         //4. Create a logic to switch to the tab where Etsy.com is open
-        BrowserUtils.switchWindowAndVerify(driver, "etsy", "Etsy");
+        BrowserUtils.switchWindowAndVerify(driver, "https://www.etsy.com/", "Etsy");
+
+
     }
 }

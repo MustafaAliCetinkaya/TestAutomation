@@ -5,10 +5,10 @@ import java.util.*;
 
 public class ConfigurationReader {
 
-    //1- Create the object of Properties
+    //1- Create the object of Properties. By private keyword we will see it only in this class. By using static, we will be able to call it with class name
     private static Properties properties = new Properties();
 
-    static{
+    static{//Running first and running only once at the beginning
 
         try {
 

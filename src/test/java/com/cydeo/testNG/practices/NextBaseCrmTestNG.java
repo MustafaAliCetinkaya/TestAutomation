@@ -26,7 +26,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
     @Test
     public void crm_login_test_1(){
         //2. Go to : https://login1.nextbasecrm.com/
-        driver.get("https://login1.nextbasecrm.com/");
+        driver.get(ConfigurationReader.getProperty("env"));//Reusable, dynamic
 
         //Calling my utility method to login helpdesk1
         crm_login(driver);
@@ -40,7 +40,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
     public void crm_login_test_2(){
 
         //2. Go to : https://login1.nextbasecrm.com/
-        driver.get("https://login1.nextbasecrm.com/");
+        driver.get(ConfigurationReader.getProperty("env"));//Reusable, dynamic
 
         //Calling my utility method to login helpdesk
         crm_login(driver, "helpdesk2@cybertekschool.com", "UserUser" );

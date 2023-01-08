@@ -79,7 +79,7 @@ public class Driver {
      */
     public static void closeDriver(){
         if (driver != null){
-            driver.quit(); // this line will terminate the existing session. value will not even be null
+            driver.quit(); // this line will terminate the existing session. Value will not even be null
             driver = null;
         }
     }

@@ -4,7 +4,6 @@ import com.cydeo.utilities.ConfigurationReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import static com.cydeo.reusableMethods.base.TestBase.driver;
 
 public interface NextBaseCrmPage {

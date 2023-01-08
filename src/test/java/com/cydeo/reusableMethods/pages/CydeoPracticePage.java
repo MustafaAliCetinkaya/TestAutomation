@@ -1,5 +1,6 @@
 package com.cydeo.reusableMethods.pages;
 
+import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +36,10 @@ public class CydeoPracticePage {
     public static void navigateThePage() {
         int count = 1;
         for (WebElement eachLink : allLinks) {
-            eachLink.click();
+            String eachUrl=eachLink.getText();
+            ReusableMethods.switchToWindows(driver);
+
+
             System.out.println(count+". Link - "+"Title of the page/URL is: "+driver.getTitle()+" / "+driver.getCurrentUrl());
             count++;
         }

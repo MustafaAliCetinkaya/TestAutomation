@@ -37,6 +37,9 @@ public class GroupWorkAmazon extends TestBase {
 
         Select quantity = new Select(driver.findElement(By.xpath("//select[@name='quantity']")));
         quantity.selectByValue("5");
+
+        WebElement checkout = driver.findElement(By.xpath("//input[@name='proceedToRetailCheckout']"));
+        checkout.click();
     }
 
 }

@@ -3,10 +3,23 @@ package com.cydeo.testNG.practices;
 import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.reusableMethods.methods.BrowserUtils;
 import com.cydeo.reusableMethods.pages.NextBaseCrmPage;
+import com.cydeo.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 
 public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
 
+    @Test
+    public void crm_login_test(){
+        //2. Go to : https://login1.nextbasecrm.com/
+        driver.get(ConfigurationReader.getProperty("env"));
+
+        //Calling my utility method to login helpdesk1
+         NextBaseCrmPage.crm_login();
+
+        //6. Verify title is as expected:
+        //Expected: Portal
+        BrowserUtils.verifyTitle(driver, "(2) Portal");
+    }
     @Test
     public void crm_login_test_1(){
         //2. Go to : https://login1.nextbasecrm.com/

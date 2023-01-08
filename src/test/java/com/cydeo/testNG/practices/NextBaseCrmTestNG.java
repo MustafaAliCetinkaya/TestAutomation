@@ -11,10 +11,11 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
     @Test
     public void crm_login_test(){
         //2. Go to : https://login1.nextbasecrm.com/
-        driver.get(ConfigurationReader.getProperty("env"));
+        driver.get(ConfigurationReader.getProperty("env"));//Reusable, dynamic
 
         //Calling my utility method to login helpdesk1
-         NextBaseCrmPage.crm_login();
+        // Calling the static method of interface
+        NextBaseCrmPage.crm_login();
 
         //6. Verify title is as expected:
         //Expected: Portal

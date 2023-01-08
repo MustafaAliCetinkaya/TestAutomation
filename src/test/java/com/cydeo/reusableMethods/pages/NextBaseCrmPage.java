@@ -4,6 +4,7 @@ import com.cydeo.utilities.ConfigurationReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import static com.cydeo.reusableMethods.base.TestBase.driver;
 
 public interface NextBaseCrmPage {
@@ -30,7 +31,7 @@ public interface NextBaseCrmPage {
         loginButton.click();
     }
 
-    default void crm_login(WebDriver driver){//Interface is By Default public
+     default void crm_login(WebDriver driver){//Interface is By Default public
         //3. Enter valid username
         WebElement inputUsername = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
         inputUsername.sendKeys("helpdesk1@cybertekschool.com");
@@ -47,7 +48,7 @@ public interface NextBaseCrmPage {
         loginButton.click();
     }
 
-    default void crm_login(WebDriver driver, String username, String password){
+     default void crm_login(WebDriver driver, String username, String password){
         //3. Enter valid username
         WebElement inputUsername = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
         inputUsername.sendKeys(username);

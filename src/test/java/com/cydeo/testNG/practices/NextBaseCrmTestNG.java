@@ -33,7 +33,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
 
         //6. Verify title is as expected:
         //Expected: Portal
-        BrowserUtils.verifyTitle(driver, "Portal");
+        BrowserUtils.verifyTitle(driver, "(1) My tasks");
     }
 
     @Test

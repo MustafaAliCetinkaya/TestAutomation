@@ -28,7 +28,7 @@ public class T4_Config_Practice extends TestBase {
     public void google_search_test(){
         //Driver.getDriver() --> driver
 
-        driver.get("https://www.google.com");
+        driver.get(ConfigurationReader.getProperty("google"));
 
         //3- Write “apple” in search box
         WebElement googleSearchBox = driver.findElement(By.xpath("//input[@name='q']"));

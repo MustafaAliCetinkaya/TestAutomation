@@ -46,6 +46,9 @@ public class CydeoPracticePage extends TestBase {
     @FindBy(xpath = "//a[.='Nested Frames']")
     public static WebElement nestedFrames;
 
+    @FindBy(xpath = "//a[.='Web Tables']")
+    public static WebElement webTables;
+
 
     public static void onlyIdAttributes() {
         System.out.println("AllIdentities.size() = " + allElements.size());
@@ -137,5 +140,7 @@ public class CydeoPracticePage extends TestBase {
         }
     }
 
-
+    public static void webTables() {
+        webTables.click();
+    }
 }

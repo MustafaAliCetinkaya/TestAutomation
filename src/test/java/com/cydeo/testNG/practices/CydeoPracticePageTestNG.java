@@ -16,7 +16,12 @@ public class CydeoPracticePageTestNG extends CydeoPracticePage {
     @Test
     public void practicePages() {
         driver.get(ConfigurationReader.getProperty("practice"));
-
         dropDowns();
+    }
+
+    @Test
+    public void practiceFrames() {
+        driver.get(ConfigurationReader.getProperty("practice"));
+        frames();
     }
 }

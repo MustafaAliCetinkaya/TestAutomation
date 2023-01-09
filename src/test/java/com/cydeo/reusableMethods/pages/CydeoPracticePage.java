@@ -34,8 +34,18 @@ public class CydeoPracticePage extends TestBase {
     @FindBy(css = "a#dropdownMenuLink")
     public static WebElement dropDownLink;
 
+
     @FindBy(xpath = "//a[.='Facebook']")
     public static WebElement facebookLink;
+
+
+    @FindBy(xpath = "//a[.='Frames']")
+    public static WebElement frames;
+
+
+    @FindBy(xpath = "//a[.='Nested Frames']")
+    public static WebElement nestedFrames;
+
 
     public static void onlyIdAttributes() {
         System.out.println("AllIdentities.size() = " + allElements.size());
@@ -68,51 +78,63 @@ public class CydeoPracticePage extends TestBase {
 
     public static void dropDowns() {
         dropDown.click();
-        Select select=new Select(driver.findElement(By.cssSelector("select#dropdown")));
-        List<WebElement>allSimpleDropdownOptions=select.getOptions();
+        Select select = new Select(driver.findElement(By.cssSelector("select#dropdown")));
+        List<WebElement> allSimpleDropdownOptions = select.getOptions();
         for (WebElement eachOption : allSimpleDropdownOptions) {
             System.out.println(eachOption.getText());
         }
-        System.out.println("Default selection is: "+select.getFirstSelectedOption().getText());
+        System.out.println("Default selection is: " + select.getFirstSelectedOption().getText());
         select.selectByIndex(1);
         select.selectByIndex(2);
 
-        Select selectYear=new Select(driver.findElement(By.cssSelector("select#year")));
+        Select selectYear = new Select(driver.findElement(By.cssSelector("select#year")));
 
-        List<WebElement>allYearOptions=selectYear.getOptions();
+        List<WebElement> allYearOptions = selectYear.getOptions();
         for (WebElement eachOption : allYearOptions) {
             System.out.println(eachOption.getText());
         }
-        System.out.println("Default selection is: "+selectYear.getFirstSelectedOption().getText());
+        System.out.println("Default selection is: " + selectYear.getFirstSelectedOption().getText());
         selectYear.selectByVisibleText("1925");
         selectYear.selectByValue("1939");
         selectYear.selectByIndex(29);
 
-        Select selectMonth=new Select(driver.findElement(By.cssSelector("select#month")));
+        Select selectMonth = new Select(driver.findElement(By.cssSelector("select#month")));
 
-        List<WebElement>allMonthOptions=selectMonth.getOptions();
+        List<WebElement> allMonthOptions = selectMonth.getOptions();
         for (WebElement eachOption : allMonthOptions) {
             System.out.println(eachOption.getText());
         }
-        System.out.println("Default selection is: "+selectMonth.getFirstSelectedOption().getText());
+        System.out.println("Default selection is: " + selectMonth.getFirstSelectedOption().getText());
         selectMonth.selectByVisibleText("May");
         selectMonth.selectByValue("7");
         selectMonth.selectByIndex(11);
 
 
-        Select selectState=new Select(driver.findElement(By.cssSelector("select#state")));
+        Select selectState = new Select(driver.findElement(By.cssSelector("select#state")));
 
-        List<WebElement>allStateOptions=selectState.getOptions();
+        List<WebElement> allStateOptions = selectState.getOptions();
         for (WebElement eachOption : allStateOptions) {
             System.out.println(eachOption.getText());
         }
-        System.out.println("Default selection is: "+selectState.getFirstSelectedOption().getText());
+        System.out.println("Default selection is: " + selectState.getFirstSelectedOption().getText());
         selectState.selectByVisibleText("Utah");
         selectState.selectByValue("LA");
         selectState.selectByIndex(23);
 
         dropDownLink.click();
         facebookLink.click();
+    }
+
+    public static void frames() {
+        frames.click();
+        nestedFrames.click();
+        driver.switchTo().frame(0);
+        for (int i = 0; i <3 ; i++) {
+            driver.switchTo().frame(i);
+            WebElement body=driver.findElement(By.tagName("body"));
+            System.out.println("Body test is: "+body.getText());
+            driver.switchTo().parentFrame();
+        }
     }
 
 

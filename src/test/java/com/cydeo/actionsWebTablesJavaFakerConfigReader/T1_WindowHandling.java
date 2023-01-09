@@ -21,7 +21,7 @@ public class T1_WindowHandling extends TestBase {
         ((JavascriptExecutor) driver).executeScript("window.open('https://facebook.com','_blank');");
 
         //4. Create a logic to switch to the tab where Etsy.com is open
-        BrowserUtils.switchWindowAndVerify(driver, "https://www.etsy.com/", "Etsy");
+        BrowserUtils.switchWindowAndVerify(driver, "etsy", "Etsy");
 
 
     }

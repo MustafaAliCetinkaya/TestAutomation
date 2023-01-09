@@ -1,6 +1,5 @@
 package com.cydeo.reusableMethods.pages;
 
-import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,14 +7,17 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CydeoPracticePage {
 
     public static WebDriver driver = Driver.getDriver();
+
     public CydeoPracticePage() {
         PageFactory.initElements(driver, this);
     }
+
     @FindAll({@FindBy(xpath = "//a[@href]")})
     public static List<WebElement> allLinks;
 
@@ -34,14 +36,20 @@ public class CydeoPracticePage {
     }
 
     public static void navigateThePage() {
+        List<String> allPages = new ArrayList<>();
         int count = 1;
         for (WebElement eachLink : allLinks) {
-            String eachUrl=eachLink.getText();
-            ReusableMethods.switchToWindows(driver);
-
-
-            System.out.println(count+". Link - "+"Title of the page/URL is: "+driver.getTitle()+" / "+driver.getCurrentUrl());
+            System.out.println(count + ". link is: " + eachLink.getAttribute("href"));
+            allPages.add(eachLink.getAttribute("href"));
             count++;
+        }
+
+        int temp = 1;
+        for (String each : allPages) {
+            driver.navigate().to(each);
+            System.out.println(temp+". page title is: "+driver.getTitle());
+            temp++;
+            driver.navigate().back();
         }
     }
 

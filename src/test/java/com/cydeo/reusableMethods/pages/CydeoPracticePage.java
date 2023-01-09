@@ -132,32 +132,29 @@ public class CydeoPracticePage extends TestBase {
         frames.click();
         nestedFrames.click();
         driver.switchTo().frame(0);
-        for (int i = 0; i <3 ; i++) {
+        for (int i = 0; i < 3; i++) {
             driver.switchTo().frame(i);
-            WebElement body=driver.findElement(By.tagName("body"));
-            System.out.println("Body test is: "+body.getText());
+            WebElement body = driver.findElement(By.tagName("body"));
+            System.out.println("Body test is: " + body.getText());
             driver.switchTo().parentFrame();
         }
     }
 
     public static void webTables() {
         webTables.click();
-        List<WebElement>allNames = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr//td[2]"));
-        int count=1;
+        List<WebElement> allNames = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr//td[2]"));
+        int count = 1;
         for (WebElement eachNames : allNames) {
-            System.out.println(count+". name on the table is: "+eachNames.getText());
+            System.out.println(count + ". name on the table is: " + eachNames.getText());
             count++;
         }
 
-        for (int i = 1; i <10 ; i++) {
-            int temp=1;
 
-            List<WebElement>allRows = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr[i]"));
-
-            for (WebElement eachRow : allRows) {
-                System.out.println(count+". row info on the table is: "+eachRow.getText());
-                temp++;
-            }
+        List<WebElement> allRows = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr"));
+        int temp = 1;
+        for (WebElement eachRow : allRows) {
+            System.out.println(temp + ". row info on the table is: " + eachRow.getText());
+            temp++;
         }
 
     }

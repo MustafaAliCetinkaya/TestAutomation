@@ -24,6 +24,9 @@ public class CydeoPracticePage {
     @FindAll({@FindBy(xpath = "//div")})
     public static List<WebElement> allElements;
 
+    @FindBy(xpath = "//*[@href=\"/dropdown\"]")
+    public static WebElement dropDown;
+
     public static void onlyIdAttributes() {
         System.out.println("AllIdentities.size() = " + allElements.size());
         int count = 1;
@@ -47,10 +50,14 @@ public class CydeoPracticePage {
         int temp = 1;
         for (String each : allPages) {
             driver.navigate().to(each);
-            System.out.println(temp+". page title is: "+driver.getTitle());
+            System.out.println(temp + ". page title is: " + driver.getTitle());
             temp++;
             driver.navigate().back();
         }
+    }
+
+    public static void dropDowns() {
+        dropDown.click();
     }
 
 

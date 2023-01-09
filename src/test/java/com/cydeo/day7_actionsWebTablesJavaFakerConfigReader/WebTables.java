@@ -16,10 +16,10 @@ public class WebTables extends TestBase {
         WebElement tableHeaderFirstName= driver.findElement(By.xpath("//span[.='First Name']"));
         for (int i = 0; i <= 3; i++) {
             tableHeaderFirstName.click();
-            System.out.println(driver.findElement(By.xpath("//td[contains(text(),'Jason')]")).getText());
+            System.out.println(driver.findElement(By.xpath("//td[contains(text(),'Jason')]")).getText());//Dynamic
         }
 
-        List<WebElement>allRowThreeCells=driver.findElements(By.xpath("(//tbody)[1]//tr[3]//td"));
+        List<WebElement>allRowThreeCells=driver.findElements(By.xpath("(//tbody)[1]//tr[3]//td"));//NOT dynamic
         for (WebElement eachCell : allRowThreeCells) {
             System.out.println(eachCell.getText());
         }

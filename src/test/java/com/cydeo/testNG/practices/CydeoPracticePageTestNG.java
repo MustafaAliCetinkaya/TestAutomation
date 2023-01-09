@@ -24,4 +24,10 @@ public class CydeoPracticePageTestNG extends CydeoPracticePage {
         driver.get(ConfigurationReader.getProperty("practice"));
         frames();
     }
+
+    @Test
+    public void practiceWebTables() {
+        driver.get(ConfigurationReader.getProperty("practice"));
+        webTables();
+    }
 }

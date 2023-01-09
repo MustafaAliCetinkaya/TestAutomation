@@ -142,5 +142,23 @@ public class CydeoPracticePage extends TestBase {
 
     public static void webTables() {
         webTables.click();
+        List<WebElement>allNames = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr//td[2]"));
+        int count=1;
+        for (WebElement eachNames : allNames) {
+            System.out.println(count+". name on the table is: "+eachNames.getText());
+            count++;
+        }
+
+        for (int i = 1; i <10 ; i++) {
+            List<WebElement>allRows = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr[i]"));
+            int temp=1;
+            for (WebElement eachRow : allRows) {
+                System.out.println(count+". row info on the table is: "+eachRow.getText());
+                temp++;
+            }
+        }
+
+
+
     }
 }

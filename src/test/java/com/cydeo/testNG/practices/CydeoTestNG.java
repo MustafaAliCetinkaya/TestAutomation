@@ -10,7 +10,6 @@ public class CydeoTestNG extends CydeoPage {
     @Test
     public void cydeoTest() throws InterruptedException {
         driver.get(ConfigurationReader.getProperty("cydeo"));
-
         ReusableMethods.verifyPageTitle(driver, "Cydeo");
 
         navigateThePage();
@@ -19,6 +18,5 @@ public class CydeoTestNG extends CydeoPage {
         cydeoShopping();
         onlyIdAttributes();
 
-        driver.quit();
     }
 }

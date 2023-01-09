@@ -1,5 +1,6 @@
 package com.cydeo.reusableMethods.pages;
 
+import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
@@ -13,7 +14,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class CydeoPage {
+public class CydeoPage extends TestBase {
     public static WebDriver driver = Driver.getDriver();
 
     public CydeoPage() {

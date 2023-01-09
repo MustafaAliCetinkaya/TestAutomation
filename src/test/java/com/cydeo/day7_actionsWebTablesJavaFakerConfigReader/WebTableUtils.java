@@ -1,4 +1,4 @@
-package com.cydeo.actionsWebTablesJavaFakerConfigReader;
+package com.cydeo.day7_actionsWebTablesJavaFakerConfigReader;
 
 import org.openqa.selenium.*;
 import org.testng.*;

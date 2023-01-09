@@ -157,5 +157,11 @@ public class CydeoPracticePage extends TestBase {
             temp++;
         }
 
+
+        List<WebElement> selectedColumn = driver.findElements(By.xpath("//table[@class='SampleTable']//tr//td[8]"));
+        for (WebElement eachRow : selectedColumn) {
+            System.out.println(eachRow.getText().equals("US") ? "United States of America" : eachRow.getText());
+        }
+
     }
 }

@@ -12,4 +12,11 @@ public class CydeoPracticePageTestNG extends CydeoPracticePage {
         onlyIdAttributes();
         navigateThePage();
     }
+
+    @Test
+    public void practicePages() {
+        driver.get(ConfigurationReader.getProperty("practice"));
+
+        dropDowns();
+    }
 }

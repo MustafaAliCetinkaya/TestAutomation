@@ -1,16 +1,19 @@
 package com.cydeo.reusableMethods.pages;
 
+import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CydeoPracticePage {
+public class CydeoPracticePage extends TestBase {
 
     public static WebDriver driver = Driver.getDriver();
 
@@ -26,6 +29,13 @@ public class CydeoPracticePage {
 
     @FindBy(xpath = "//*[@href=\"/dropdown\"]")
     public static WebElement dropDown;
+
+
+    @FindBy(css = "a#dropdownMenuLink")
+    public static WebElement dropDownLink;
+
+    @FindBy(xpath = "//a[.='Facebook']")
+    public static WebElement facebookLink;
 
     public static void onlyIdAttributes() {
         System.out.println("AllIdentities.size() = " + allElements.size());
@@ -58,6 +68,51 @@ public class CydeoPracticePage {
 
     public static void dropDowns() {
         dropDown.click();
+        Select select=new Select(driver.findElement(By.cssSelector("select#dropdown")));
+        List<WebElement>allSimpleDropdownOptions=select.getOptions();
+        for (WebElement eachOption : allSimpleDropdownOptions) {
+            System.out.println(eachOption.getText());
+        }
+        System.out.println("Default selection is: "+select.getFirstSelectedOption().getText());
+        select.selectByIndex(1);
+        select.selectByIndex(2);
+
+        Select selectYear=new Select(driver.findElement(By.cssSelector("select#year")));
+
+        List<WebElement>allYearOptions=selectYear.getOptions();
+        for (WebElement eachOption : allYearOptions) {
+            System.out.println(eachOption.getText());
+        }
+        System.out.println("Default selection is: "+selectYear.getFirstSelectedOption().getText());
+        selectYear.selectByVisibleText("1925");
+        selectYear.selectByValue("1939");
+        selectYear.selectByIndex(29);
+
+        Select selectMonth=new Select(driver.findElement(By.cssSelector("select#month")));
+
+        List<WebElement>allMonthOptions=selectMonth.getOptions();
+        for (WebElement eachOption : allMonthOptions) {
+            System.out.println(eachOption.getText());
+        }
+        System.out.println("Default selection is: "+selectMonth.getFirstSelectedOption().getText());
+        selectMonth.selectByVisibleText("May");
+        selectMonth.selectByValue("7");
+        selectMonth.selectByIndex(11);
+
+
+        Select selectState=new Select(driver.findElement(By.cssSelector("select#state")));
+
+        List<WebElement>allStateOptions=selectState.getOptions();
+        for (WebElement eachOption : allStateOptions) {
+            System.out.println(eachOption.getText());
+        }
+        System.out.println("Default selection is: "+selectState.getFirstSelectedOption().getText());
+        selectState.selectByVisibleText("Utah");
+        selectState.selectByValue("LA");
+        selectState.selectByIndex(23);
+
+        dropDownLink.click();
+        facebookLink.click();
     }
 
 

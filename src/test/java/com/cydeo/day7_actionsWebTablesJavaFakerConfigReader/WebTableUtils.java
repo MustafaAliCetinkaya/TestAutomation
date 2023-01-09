@@ -3,7 +3,7 @@ package com.cydeo.day7_actionsWebTablesJavaFakerConfigReader;
 import org.openqa.selenium.*;
 import org.testng.*;
 
-public class WebTableUtils {
+public interface WebTableUtils {
 
     //Method #1 info:
     //• Name: returnOrderDate ()

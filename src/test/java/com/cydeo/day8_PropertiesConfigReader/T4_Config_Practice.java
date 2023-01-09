@@ -42,5 +42,4 @@ public class T4_Config_Practice extends TestBase {
 
         Assert.assertEquals(actualTitle, expectedTitle);
     }
-
 }

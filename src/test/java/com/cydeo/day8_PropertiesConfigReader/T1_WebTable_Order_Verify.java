@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class T1_WebTable_Order_Verify extends TestBase {
+public class T1_WebTable_Order_Verify extends TestBase implements WebTableUtils {
 
     @Test
-    public void order_name_verify_test(){
+    public void order_name_verify_test() {
 
         //Locate the cell that has Bob Martin text in it.
         WebElement bobMartinCell =
@@ -41,7 +41,7 @@ public class T1_WebTable_Order_Verify extends TestBase {
 
     //We use the utility method we created.
     @Test
-    public void test2(){
+    public void test2() {
 
         String costumerOrderDate1 = WebTableUtils.returnOrderDate(driver, "Alexandra Gray");
         System.out.println("costumerOrderDate1 = " + costumerOrderDate1);
@@ -54,7 +54,9 @@ public class T1_WebTable_Order_Verify extends TestBase {
 
     //Using WebTableUtils.orderVerify(); method
     @Test
-    public void test3(){
+    public void test3() {
+
+        driver.get("https://practice.cydeo.com/web-tables");
 
         WebTableUtils.orderVerify(driver, "Bart Fisher", "01/16/2021");
 

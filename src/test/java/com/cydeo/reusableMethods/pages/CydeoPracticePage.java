@@ -150,15 +150,15 @@ public class CydeoPracticePage extends TestBase {
         }
 
         for (int i = 1; i <10 ; i++) {
-            List<WebElement>allRows = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr[i]"));
             int temp=1;
+
+            List<WebElement>allRows = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]//tr[i]"));
+
             for (WebElement eachRow : allRows) {
                 System.out.println(count+". row info on the table is: "+eachRow.getText());
                 temp++;
             }
         }
-
-
 
     }
 }

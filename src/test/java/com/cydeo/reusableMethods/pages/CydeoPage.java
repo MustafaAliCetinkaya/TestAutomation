@@ -12,7 +12,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

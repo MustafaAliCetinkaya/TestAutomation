@@ -19,4 +19,13 @@ public class CydeoTestNG extends CydeoPage {
         onlyIdAttributes();
 
     }
+
+    @Test
+    public void testAllLinksOnTheMainPage() {
+        driver.get(ConfigurationReader.getProperty("cydeo"));
+        ReusableMethods.verifyPageTitle(driver, "Cydeo");
+
+        testAllLinksOnTheHomepage();
+
+    }
 }

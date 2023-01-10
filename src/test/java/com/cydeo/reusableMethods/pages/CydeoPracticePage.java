@@ -65,14 +65,15 @@ public class CydeoPracticePage extends TestBase {
 
     public static void navigateThePage() {
         List<String> allPages = new ArrayList<>();
-        for (int i = 1; i < 53; i++) {
+
+        for (int i = 1; i < 53; i++) {//Get all links on the page
 
             String eachAddress = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
             allPages.add(eachAddress);
         }
 
 
-        for (String each : allPages) {
+        for (String each : allPages) {//Open each link in a new tab
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.open('"+each+"', '_blank');");
         }
@@ -80,7 +81,7 @@ public class CydeoPracticePage extends TestBase {
 
         Set<String> AllHandles=driver.getWindowHandles();
         int count = 1;
-        for (String eachHandle : AllHandles) {
+        for (String eachHandle : AllHandles) {//Navigate each tabs and get title/URL
             driver.switchTo().window(eachHandle);
             System.out.println(count + ". page title is : " + driver.getTitle()+"\n"+
             count + ". link is: " + driver.getCurrentUrl());

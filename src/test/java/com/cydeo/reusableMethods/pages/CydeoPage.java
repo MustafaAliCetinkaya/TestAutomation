@@ -4,6 +4,7 @@ import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -12,7 +13,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class CydeoPage extends TestBase {
     public static WebDriver driver = Driver.getDriver();
@@ -113,6 +116,32 @@ public class CydeoPage extends TestBase {
         shop.click();
         System.out.println("Page title is = " + driver.getTitle());
 
+    }
+
+    public static void testAllLinksOnTheHomepage() {
+        List<String> allPages = new ArrayList<>();
+        for (int i = 1; i < 50; i++) {
+
+            String eachAddress = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
+            allPages.add(eachAddress);
+        }
+
+
+        for (String each : allPages) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.open('"+each+"', '_blank');");
+        }
+
+
+        Set<String> AllHandles=driver.getWindowHandles();
+        int count = 1;
+        for (String eachHandle : AllHandles) {
+            driver.switchTo().window(eachHandle);
+            System.out.println(count + ". page title is : " + driver.getTitle()+"\n"+
+                    count + ". link is: " + driver.getCurrentUrl());
+            driver.switchTo().parentFrame();
+            count++;
+        }
     }
 
     public static void cydeoShopDropDownTest() {

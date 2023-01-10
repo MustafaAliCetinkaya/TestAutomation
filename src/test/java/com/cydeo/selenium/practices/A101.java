@@ -1,14 +1,19 @@
 package com.cydeo.selenium.practices;
 
+import com.cydeo.reusableMethods.base.TestBase;
+import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class A101 {
+import static com.cydeo.reusableMethods.pages.CydeoPage.testAllLinksOnTheHomepage;
+
+public class A101 extends TestBase {
     public static void main(String[] args) {
 
         WebDriver driver = WebDriverFactory.getDriver("chrome");
@@ -124,12 +129,13 @@ public class A101 {
 
     }
 
-/*    @Test//Test all links
+    @Test//Test all links
     public void testAllLinksOnTheMainPage() {
+
         driver.get("https://www.a101.com.tr/");
-        ReusableMethods.verifyPageTitle(driver, "Cydeo");
+        ReusableMethods.verifyPageTitle(driver, "A101 HARCA HARCA BİTMEZ");
 
         testAllLinksOnTheHomepage();
 
-    }*/
+    }
 }

@@ -127,6 +127,8 @@ public class A101 extends TestBase {
         //Write your mail address to the pup up box
         driver.findElement(By.xpath("//input[@name=\"user_email\"]")).sendKeys("Enough for practice!");
 
+        driver.close();
+
     }
 
     @Test//Test all links

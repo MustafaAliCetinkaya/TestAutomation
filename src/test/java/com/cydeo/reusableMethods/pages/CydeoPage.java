@@ -126,6 +126,7 @@ public class CydeoPage extends TestBase {
             allPages.add(eachAddress);
         }
 
+        System.out.println("Number of the links on the page is: "+allPages.size());
 
         for (String each : allPages) {//This loop opens each link on a new tab
             JavascriptExecutor js = (JavascriptExecutor) driver;

@@ -34,7 +34,7 @@ public class A101 {
             executor.executeScript("arguments[0].click();", cookies);
         }
 
-        //Find the first item
+        //Below part is hard coding. Find the first item
         driver.findElement(By.xpath("(//a[@title=\"GİYİM & AKSESUAR\"])[1]")).click();
         //driver.findElement(By.cssSelector("a[data-value=\"1588\"]")).click(); Sometimes ElementNotClickable exemption is thrown
         driver.findElement(By.xpath("//a[@data-value='1588' and @title=\"Erkek İç Giyim\"]")).click();
@@ -121,6 +121,15 @@ public class A101 {
         driver.findElement(By.xpath("//a[@title=\"ÜYE OLMADAN DEVAM ET\"]")).click();
         //Write your mail address to the pup up box
         driver.findElement(By.xpath("//input[@name=\"user_email\"]")).sendKeys("Enough for practice!");
+
+    }
+
+    @Test//Test all links
+    public void testAllLinksOnTheMainPage() {
+        driver.get("https://www.a101.com.tr/");
+        ReusableMethods.verifyPageTitle(driver, "Cydeo");
+
+        testAllLinksOnTheHomepage();
 
     }
 }

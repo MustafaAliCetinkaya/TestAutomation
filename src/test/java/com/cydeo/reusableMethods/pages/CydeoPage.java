@@ -120,24 +120,24 @@ public class CydeoPage extends TestBase {
 
     public static void testAllLinksOnTheHomepage() {
         List<String> allPages = new ArrayList<>();
-        for (int i = 1; i < 50; i++) {
-
+        for (int i = 1; i < 50; i++) {//Firstly, inspect your site, set the breakpoint of "i" based on the number of "href tags" on the page
+            //This loop finds all href tags and store their values in allPages list
             String eachAddress = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
             allPages.add(eachAddress);
         }
 
 
-        for (String each : allPages) {
+        for (String each : allPages) {//This loop opens each link on a new tab
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.open('"+each+"', '_blank');");
+            js.executeScript("window.open('" + each + "', '_blank');");
         }
 
 
-        Set<String> AllHandles=driver.getWindowHandles();
+        Set<String> AllHandles = driver.getWindowHandles();
         int count = 1;
-        for (String eachHandle : AllHandles) {
+        for (String eachHandle : AllHandles) {//Navigate each tab and get title/URL
             driver.switchTo().window(eachHandle);
-            System.out.println(count + ". page title is : " + driver.getTitle()+"\n"+
+            System.out.println(count + ". page title is : " + driver.getTitle() + "\n" +
                     count + ". link is: " + driver.getCurrentUrl());
             driver.switchTo().parentFrame();
             count++;
@@ -225,8 +225,8 @@ public class CydeoPage extends TestBase {
 
         goToCart.click();
         System.out.println("Page title is = " + driver.getTitle());
-        ReusableMethods.hover(driver,increaseQuantity);
-        ReusableMethods.clickWithTimeOut(increaseQuantity,3);
+        ReusableMethods.hover(driver, increaseQuantity);
+        ReusableMethods.clickWithTimeOut(increaseQuantity, 3);
 
         Thread.sleep(5000);
 

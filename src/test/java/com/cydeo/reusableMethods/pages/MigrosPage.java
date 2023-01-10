@@ -1,5 +1,6 @@
 package com.cydeo.reusableMethods.pages;
 
+import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MigrosPage {
+public class MigrosPage extends TestBase {
     public WebDriver driver = Driver.getDriver();
 
     public MigrosPage() {

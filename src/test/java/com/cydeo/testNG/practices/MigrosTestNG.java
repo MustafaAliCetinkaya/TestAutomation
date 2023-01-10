@@ -1,8 +1,11 @@
 package com.cydeo.testNG.practices;
 
+import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.reusableMethods.pages.MigrosPage;
+import com.cydeo.utilities.ConfigurationReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import static com.cydeo.reusableMethods.pages.CydeoPage.testAllLinksOnTheHomepage;
 
 public class MigrosTestNG extends MigrosPage {
 
@@ -19,6 +22,15 @@ public class MigrosTestNG extends MigrosPage {
         addItem(findItem);
         fillAddressDetails();
         goToTheCart();
+
+    }
+
+    @Test
+    public void testAllLinksOnTheMainPage() {
+        driver.get(ConfigurationReader.getProperty("migros"));
+        ReusableMethods.verifyPageTitle(driver, "Migros Sanal Market: Online Market Alışverişi");
+
+        testAllLinksOnTheHomepage();
 
     }
 }

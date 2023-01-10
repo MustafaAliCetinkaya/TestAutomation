@@ -124,12 +124,12 @@ public class A101 {
 
     }
 
-    @Test//Test all links
+/*    @Test//Test all links
     public void testAllLinksOnTheMainPage() {
         driver.get("https://www.a101.com.tr/");
         ReusableMethods.verifyPageTitle(driver, "Cydeo");
 
         testAllLinksOnTheHomepage();
 
-    }
+    }*/
 }

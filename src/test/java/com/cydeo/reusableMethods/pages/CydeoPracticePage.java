@@ -3,6 +3,7 @@ package com.cydeo.reusableMethods.pages;
 import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class CydeoPracticePage extends TestBase {
 
@@ -63,19 +65,26 @@ public class CydeoPracticePage extends TestBase {
 
     public static void navigateThePage() {
         List<String> allPages = new ArrayList<>();
-        int count = 1;
-        for (WebElement eachLink : allLinks) {
-            System.out.println(count + ". link is: " + eachLink.getAttribute("href"));
-            allPages.add(eachLink.getAttribute("href"));
-            count++;
+        for (int i = 1; i < 53; i++) {
+
+            String eachAddress = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
+            allPages.add(eachAddress);
         }
 
-        int temp = 1;
+
         for (String each : allPages) {
-            driver.navigate().to(each);
-            System.out.println(temp + ". page title is: " + driver.getTitle());
-            temp++;
-            driver.navigate().back();
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.open('"+each+"', '_blank');");
+        }
+
+        Set<String> AllHandles=driver.getWindowHandles();
+        int count = 1;
+        for (String eachHandle : AllHandles) {
+            driver.switchTo().window(eachHandle);
+            System.out.println(count + ". page title is : " + driver.getTitle()+"\n"+
+            count + ". link is: " + driver.getCurrentUrl());
+            driver.switchTo().parentFrame();
+            count++;
         }
     }
 

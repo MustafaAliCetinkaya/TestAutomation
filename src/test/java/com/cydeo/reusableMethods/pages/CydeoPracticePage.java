@@ -77,6 +77,7 @@ public class CydeoPracticePage extends TestBase {
             js.executeScript("window.open('"+each+"', '_blank');");
         }
 
+
         Set<String> AllHandles=driver.getWindowHandles();
         int count = 1;
         for (String eachHandle : AllHandles) {

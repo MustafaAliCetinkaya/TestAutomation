@@ -48,6 +48,4 @@ public class C02_HandleWindows extends TestBase {
         //9- Sayfaları Kapatalım
         driver.quit();
     }
-
-
 }

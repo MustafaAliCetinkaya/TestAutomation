@@ -2,9 +2,7 @@ package com.cydeo.day7_actionsWebTablesJavaFakerConfigReader;
 
 import com.cydeo.reusableMethods.base.TestBase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -12,10 +10,7 @@ import java.util.List;
 public class C01_WebTables extends TestBase {
     @Test
     public void test1() {
-
-        //● Bir class oluşturun : C02_WebTables
-        //● login( ) metodun oluşturun ve oturum açın.
-        login();
+        driver.get("https://practice.cydeo.com/tables");//When we sort the table, everything is reordered in it.
 
         //● table( ) metodu oluşturun
         table();
@@ -38,12 +33,16 @@ public class C01_WebTables extends TestBase {
             System.out.println(each.getText());
         }
 
+        System.out.println("*****************************************");
+
         //○ 4.satirdaki(row) elementleri konsolda yazdırın.
 
         List<WebElement> cellList = driver.findElements(By.xpath("//tbody//tr[4]//td"));
         for (WebElement each:cellList) {
             System.out.println(each.getText()); //Burada da tek tek hücreleri yazdırdık
         }
+
+        System.out.println("*****************************************");
 
         //Email başlığındaki tüm elementleri(sutun) konsolda yazdırın
         //önce email başlığının kaçıncı sütunda olduğunu bulalım
@@ -52,29 +51,30 @@ public class C01_WebTables extends TestBase {
         for (int i = 0; i < basliklarListesi.size(); i++) {
             if (basliklarListesi.get(i).getText().equals("Email")){
                 emailSutunNo=i;
+                break;
             }
         }
+        System.out.println("*****************************************");
 
         List<WebElement> emailSutunListesi = driver.findElements(By.xpath("//tbody//td["+(emailSutunNo+1)+"]"));
         for (WebElement each:emailSutunListesi) {
             System.out.println(each.getText());
         }
 
-        System.out.println("*****************************************");
-
         //BirthDate başlığındaki tüm elementleri(sutun) konsolda yazdırın
-        int birthDateSutunNo=0;
+        int borcSutunNo=0;
         for (int i = 0; i < basliklarListesi.size(); i++) {
-            if (basliklarListesi.get(i).getText().equals("BirthDate")){
-                birthDateSutunNo=i;
+            if (basliklarListesi.get(i).getText().equals("Due")){
+                borcSutunNo=i;
+                break;
             }
         }
+        System.out.println("*****************************************");
 
-        List<WebElement> birthDateSutunListesi = driver.findElements(By.xpath("//tbody//td["+(birthDateSutunNo+1)+"]"));
-        for (WebElement each:birthDateSutunListesi) {
+        List<WebElement> borcSutunListesi = driver.findElements(By.xpath("//tbody//td["+(borcSutunNo+1)+"]"));
+        for (WebElement each:borcSutunListesi) {
             System.out.println(each.getText());
         }
-
 
     }
 
@@ -82,9 +82,16 @@ public class C01_WebTables extends TestBase {
         //○ Tüm table body’sinin boyutunu(sutun sayisi) bulun. /tbody
         List<WebElement> sutunBasliklariListesi = driver.findElements(By.xpath("//thead//tr[1]//th"));
         System.out.println("Sutun sayisi :" +sutunBasliklariListesi.size());
+        for (WebElement eachHeader : sutunBasliklariListesi) {
+            System.out.print(eachHeader.getText()+" ");
+        }
 
-        WebElement tumBody = driver.findElement(By.xpath("//tbody"));
-        System.out.println(tumBody.getText());
+        System.out.println();
+
+        WebElement allBodyExample1 = driver.findElement(By.xpath("(//tbody)[1]"));
+        WebElement allBodyExample2 = driver.findElement(By.xpath("(//tbody)[2]"));
+        System.out.println(allBodyExample1.getText());
+        System.out.println(allBodyExample2.getText());
         //Tüm body'i bir String olarak yazdırmak isterseniz
         //body webElementini locate edip getText() methodu ile yazdırabilirsiniz ama üzerinde gezemezsiniz
 
@@ -92,17 +99,10 @@ public class C01_WebTables extends TestBase {
         list olunca driver.findElements olmalıdır
          */
 
-        //○ Table’daki tum body’I ve başlıkları(headers) konsolda yazdırın.
-        List<WebElement> tumBodyTumBaslik = driver.findElements(By.xpath("//table//tbody")); //table deki dediği için table dendi
-        System.out.println("body sayisi :"+tumBodyTumBaslik.size());  //sayısı yazdırıldı
         System.out.println("*****************************");
 
-        WebElement body = driver.findElement(By.xpath("//tbody"));
-        System.out.println("tum body :"+body.getText());
-        System.out.println("*****************************");
-
-        WebElement basliklar= driver.findElement(By.xpath("//thead//tr"));  //başlık için thead olur
-        System.out.println("basliklari :"+basliklar.getText());
+        WebElement headers= driver.findElement(By.xpath("//thead//tr"));  //başlık için thead olur
+        System.out.println("Table Headers :"+headers.getText());
         System.out.println("*****************************");
 
         //thead-->Title başlıklari
@@ -114,7 +114,7 @@ public class C01_WebTables extends TestBase {
 
     }
 
-    public void login() {
+  /*  public void login() {
         //● https://www.hotelmycamp.com admin/HotelRoomAdmin adresine gidin
         driver.get("https://www.hotelmycamp.com");
         driver.findElement(By.xpath("//*[text()='Log in']")).click();
@@ -125,7 +125,7 @@ public class C01_WebTables extends TestBase {
         actions.click(username).sendKeys("manager")
                 .sendKeys(Keys.TAB).sendKeys("Manager1!")
                 .sendKeys(Keys.ENTER).perform();
-        /*
+
         Diğer yöntem
         //○ Username : manager
         driver.findElement(By.xpath("//*[@id='UserName']")).sendKeys("manager");
@@ -138,4 +138,3 @@ public class C01_WebTables extends TestBase {
     }
 
 
-}

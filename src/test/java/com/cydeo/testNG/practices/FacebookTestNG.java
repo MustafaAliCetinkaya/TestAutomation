@@ -15,7 +15,7 @@ public class FacebookTestNG extends TestBaseBeforeClassAfterClass implements Fac
     @Test
 
     public void facebookTest2(){
-        driver.get(ConfigurationReader.getProperty("facebook"));
+        //driver.get(ConfigurationReader.getProperty("facebook"));
         FacebookPage.facebookLogin();
     }
 }

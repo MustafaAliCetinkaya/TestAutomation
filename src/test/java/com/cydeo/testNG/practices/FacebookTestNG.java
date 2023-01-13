@@ -7,15 +7,18 @@ import org.testng.annotations.Test;
 
 public class FacebookTestNG extends TestBaseBeforeClassAfterClass implements FacebookPage {
     @Test
-    public void facebookTest(){
-        driver.get(ConfigurationReader.getProperty("facebook"));
-        facebookLogin("karaca@gmail.com","Karaca.098756");
+    public void facebookTest() {
+        while (1 > 0) {
+            driver.get(ConfigurationReader.getProperty("facebook"));
+            facebookLogin(FacebookPage.getMockEmailAndPassword() + "@gmail.com", FacebookPage.getMockEmailAndPassword());
+        }
     }
 
     @Test
 
-    public void facebookTest2(){
+    public void facebookTest2() {
         //driver.get(ConfigurationReader.getProperty("facebook"));
         FacebookPage.facebookLogin();
     }
+
 }

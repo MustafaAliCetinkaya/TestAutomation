@@ -4,6 +4,8 @@ import com.cydeo.reusableMethods.methods.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.Random;
+
 import static com.cydeo.reusableMethods.base.TestBaseBeforeClassAfterClass.driver;
 import static com.cydeo.reusableMethods.base.TestBaseBeforeClassAfterClass.faker;
 
@@ -34,7 +36,23 @@ public interface FacebookPage {
         WebElement loginButton = driver.findElement(By.xpath("//button[.=\"Giriş Yap\"]"));
         loginButton.click();
 
-        WebElement errorMessage = driver.findElement(By.cssSelector("div._9ay7"));
+        WebElement errorMessage = driver.findElement(By.cssSelector("div#error_box"));
         System.out.println(errorMessage.getText());
+    }
+
+    public static String getMockEmailAndPassword() {
+        String allowedChars = "abcdefghijklmnopqrstuvwxyz" + "1234567890" + "_-.";
+
+        StringBuilder temp = new StringBuilder();
+        Random random = new Random();
+
+        while (temp.length() < 10) { // length of the random string.
+            int index = random.nextInt(39);
+            temp.append(allowedChars.charAt(index));
+        }
+
+        String loginInfo = temp.toString();
+        return loginInfo;
+
     }
 }

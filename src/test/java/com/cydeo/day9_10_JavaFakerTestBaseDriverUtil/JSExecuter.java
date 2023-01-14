@@ -1,4 +1,4 @@
-package com.cydeo.day9;
+package com.cydeo.day9_10_JavaFakerTestBaseDriverUtil;
 
 import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.reusableMethods.methods.ReusableMethods;

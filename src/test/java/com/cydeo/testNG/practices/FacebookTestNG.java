@@ -10,7 +10,7 @@ public class FacebookTestNG extends TestBaseBeforeClassAfterClass implements Fac
     public void facebookTest() {
         while (1 > 0) {
             driver.get(ConfigurationReader.getProperty("facebook"));
-            facebookLogin(FacebookPage.getMockEmailAndPassword() + "@gmail.com", FacebookPage.getMockEmailAndPassword());
+            facebookLogin(FacebookPage.mockEmailAndPasswordFactory() + "@gmail.com", FacebookPage.mockEmailAndPasswordFactory());
         }
     }
 

@@ -36,11 +36,11 @@ public interface FacebookPage {
         WebElement loginButton = driver.findElement(By.xpath("//button[.=\"Giriş Yap\"]"));
         loginButton.click();
 
-        WebElement errorMessage = driver.findElement(By.cssSelector("div#error_box"));
+        WebElement errorMessage = driver.findElement(By.cssSelector("div._9ay7"));
         System.out.println(errorMessage.getText());
     }
 
-    public static String getMockEmailAndPassword() {
+    public static String mockEmailAndPasswordFactory() {
         String allowedChars = "abcdefghijklmnopqrstuvwxyz" + "1234567890" + "_-.";
 
         String temp="";
@@ -51,8 +51,7 @@ public interface FacebookPage {
             temp+=allowedChars.charAt(index);
         }
 
-        String loginInfo = temp.toString();
-        return loginInfo;
+        return temp;
 
     }
 }

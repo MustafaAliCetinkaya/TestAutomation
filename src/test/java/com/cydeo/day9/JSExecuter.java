@@ -22,6 +22,8 @@ public class JSExecuter extends TestBase {
         ReusableMethods.waitFor(2);
 
         js.executeScript("arguments[0].scrollIntoView(true);"+"arguments[0].click()",cydeoLink);
+        ReusableMethods.waitFor(4);
+
 
     }
 }

@@ -16,6 +16,7 @@ public class JSExecuter extends TestBase {
         WebElement cydeoLink=driver.findElement(By.linkText("CYDEO"));
 
         JavascriptExecutor js= (JavascriptExecutor) driver;
+
         ReusableMethods.waitFor(2);
         js.executeScript("arguments[0].scrollIntoView(true);",cydeoLink);
         ReusableMethods.waitFor(2);

@@ -43,12 +43,12 @@ public interface FacebookPage {
     public static String getMockEmailAndPassword() {
         String allowedChars = "abcdefghijklmnopqrstuvwxyz" + "1234567890" + "_-.";
 
-        StringBuilder temp = new StringBuilder();
+        String temp="";
         Random random = new Random();
 
         while (temp.length() < 10) { // length of the random string.
             int index = random.nextInt(39);
-            temp.append(allowedChars.charAt(index));
+            temp+=allowedChars.charAt(index);
         }
 
         String loginInfo = temp.toString();

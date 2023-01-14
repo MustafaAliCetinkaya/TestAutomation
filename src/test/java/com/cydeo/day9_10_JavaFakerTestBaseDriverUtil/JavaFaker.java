@@ -1,4 +1,4 @@
-package com.cydeo.day7_actionsWebTablesConfigReader;
+package com.cydeo.day9_10_JavaFakerTestBaseDriverUtil;
 
 import com.cydeo.reusableMethods.base.TestBase;
 import com.github.javafaker.Faker;

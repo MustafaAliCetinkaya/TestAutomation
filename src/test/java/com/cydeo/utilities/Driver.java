@@ -52,6 +52,8 @@ public class Driver {
                 case "safari" :
                     WebDriverManager.safaridriver().setup();
                     driver=new SafariDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
                     break;
 
                 case "firefox":

@@ -1,4 +1,4 @@
-package com.cydeo.selenium.practices;
+package com.cydeo.testNG.practices;
 
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.WebTableUtils;
@@ -34,7 +34,7 @@ public class GroupStudy implements WebTableUtils {
 
     @Test(dependsOnMethods = {"smartBearLoginTest"})
     public void smartBearGettingLinksTest(){
-        smartBearLogin();
+        smartBearGetAllLinks();
     }
 
     public static void smartBearGetAllLinks() {

@@ -1,55 +1,64 @@
 package com.cydeo.selenium.practices;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.cydeo.utilities.Driver;
+import com.cydeo.utilities.WebTableUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class GroupStudy {
-    static WebDriver driver;
+public class GroupStudy implements WebTableUtils {
 
-    @BeforeMethod
+    @BeforeClass
     public static void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+        Driver.getDriver().get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+    }
+
+    @AfterClass
+    public static void tearDown(){
+        Driver.getDriver().quit();
+    }
+
+    @Test (dependsOnMethods = {"smartBearLoginTest"})
+    public void smartBearGetTableInfoTest(){
+        System.out.println(smartBearPaymentInfo("US"));
     }
 
     @Test
-    public void smartBearTestTables(){
-
-
+    public void smartBearLoginTest(){
+        smartBearLogin();
     }
 
-    @Test
-    public void smartBearTest(){
-        smartBearUtil(driver);
+    @Test(dependsOnMethods = {"smartBearLoginTest"})
+    public void smartBearGettingLinksTest(){
+        smartBearLogin();
     }
 
-    public static void smartBearUtil(WebDriver driver) {
+    public static void smartBearGetAllLinks() {
 
-        WebElement username = driver.findElement(By.cssSelector("input#ctl00_MainContent_username"));
-        WebElement password = driver.findElement(By.cssSelector("input#ctl00_MainContent_password"));
-        WebElement loginButton = driver.findElement(By.id("ctl00_MainContent_login_button"));
-
-        username.sendKeys("Tester");
-        password.sendKeys("test");
-        loginButton.click();
-
-        List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
+        List<WebElement> allLinks = Driver.getDriver().findElements(By.xpath("//a[@href]"));
 
         for (WebElement eachLink : allLinks) {
             System.out.println(eachLink.getText());
             System.out.println(eachLink.getAttribute("href"));
         }
+    }
+
+    public static void smartBearLogin() {
+
+        WebElement username = Driver.getDriver().findElement(By.cssSelector("input#ctl00_MainContent_username"));
+        WebElement password = Driver.getDriver().findElement(By.cssSelector("input#ctl00_MainContent_password"));
+        WebElement loginButton = Driver.getDriver().findElement(By.id("ctl00_MainContent_login_button"));
+
+        username.sendKeys("Tester");
+        password.sendKeys("test");
+        loginButton.click();
+
+        if(Driver.getDriver().getTitle().equalsIgnoreCase("Web Orders"))
+            System.out.println("Driver successfully logged into the site.");
     }
 
     /*public static void main(String[] args) {

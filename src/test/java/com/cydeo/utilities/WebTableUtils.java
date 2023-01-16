@@ -14,7 +14,7 @@ public interface WebTableUtils {
     //• Arg2: String costumerName
     //This method should accept a costumerName and return the costumer order date
     //as a String.
-
+//Below written methods are created for the table infos on the https://practice.cydeo.com/web-tables website.
     public static String returnOrderDate(WebDriver driver, String customerName) {
         String locator = "//td[.='" + customerName + "']/following-sibling::td[3]";
         WebElement customerDateCell = driver.findElement(By.xpath(locator));
@@ -68,6 +68,25 @@ public interface WebTableUtils {
         for (int i = 1; i < 3; i++) {
             String locator = "//td[.='" + customerName + "']/following-sibling::td[" + i + "]";
             returnOrderInfo += driver.findElement(By.xpath(locator)).getText() + " ";
+        }
+        return returnOrderInfo;
+    }
+
+    //Below written methods are created for the table infos on the http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx website.
+    default String smartBearOrderInfo(String customerName) {
+        String returnOrderInfo = "Order Details: ";
+        for (int i = 1; i < 3; i++) {
+            String locator = "//td[.='" + customerName + "']/following-sibling::td[" + i + "]";
+            returnOrderInfo += Driver.getDriver().findElement(By.xpath(locator)).getText() + " ";
+        }
+        return returnOrderInfo;
+    }
+
+    default String smartBearPaymentInfo(String stateName) {
+        String returnOrderInfo = "Order Details: ";
+        for (int i = 6; i > 3; i--) {
+            String locator = "//td[.='" + stateName + "']/preceding-sibling::td[" + i + "]";
+            returnOrderInfo += Driver.getDriver().findElement(By.xpath(locator)).getText() + " ";
         }
         return returnOrderInfo;
     }

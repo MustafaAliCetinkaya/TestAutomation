@@ -24,9 +24,34 @@ public class GroupStudy {
     }
 
     @Test
+    public void smartBearTestTables(){
+
+
+    }
+
+    @Test
     public void smartBearTest(){
         smartBearUtil(driver);
     }
+
+    public static void smartBearUtil(WebDriver driver) {
+
+        WebElement username = driver.findElement(By.cssSelector("input#ctl00_MainContent_username"));
+        WebElement password = driver.findElement(By.cssSelector("input#ctl00_MainContent_password"));
+        WebElement loginButton = driver.findElement(By.id("ctl00_MainContent_login_button"));
+
+        username.sendKeys("Tester");
+        password.sendKeys("test");
+        loginButton.click();
+
+        List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
+
+        for (WebElement eachLink : allLinks) {
+            System.out.println(eachLink.getText());
+            System.out.println(eachLink.getAttribute("href"));
+        }
+    }
+
     /*public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -85,24 +110,6 @@ public class GroupStudy {
         public void test2(){
             System.out.println("This is test2");
         }*/
-    public static void smartBearUtil(WebDriver driver) {
-
-        WebElement username = driver.findElement(By.cssSelector("input#ctl00_MainContent_username"));
-        WebElement password = driver.findElement(By.cssSelector("input#ctl00_MainContent_password"));
-        WebElement loginButton = driver.findElement(By.id("ctl00_MainContent_login_button"));
-
-        username.sendKeys("Tester");
-        password.sendKeys("test");
-        loginButton.click();
-
-        List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
-
-        for (WebElement eachLink : allLinks) {
-            System.out.println(eachLink.getText());
-            System.out.println(eachLink.getAttribute("href"));
-        }
-    }
-
 }
 
 

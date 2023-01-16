@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.util.List;
+
 public interface WebTableUtils {
 
     //Method #1 info:
@@ -82,12 +84,20 @@ public interface WebTableUtils {
         return returnOrderInfo;
     }
 
-    default String smartBearPaymentInfo(String stateName) {
-        String returnOrderInfo = "Order Details: ";
-        for (int i = 6; i > 3; i--) {
-            String locator = "//td[.='" + stateName + "']/preceding-sibling::td[" + i + "]";
-            returnOrderInfo += Driver.getDriver().findElement(By.xpath(locator)).getText() + " ";
+    default void smartBearPaymentInfo(String stateName) {//Must ve completed. Contains bug!
+        List<WebElement> allCustomersAtTheSameState=Driver.getDriver().findElements(By.xpath("//td[.='" + stateName + "']"));
+
+
+        for (WebElement eachWebElement : allCustomersAtTheSameState) {
+            String returnOrderInfo="";
+            String temp="Order Details Which are Given From "+stateName+": ";
+            for (int i = 6; i > 3; i--) {
+                String locator = "//td[.='" + eachWebElement.getText() + "']/preceding-sibling::td[" + i + "]";
+                temp+=Driver.getDriver().findElement(By.xpath(locator)).getText() + " ";
+            }
+            returnOrderInfo+=temp;
+            System.out.println(returnOrderInfo);
         }
-        return returnOrderInfo;
+
     }
 }

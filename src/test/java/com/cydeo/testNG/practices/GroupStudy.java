@@ -23,8 +23,8 @@ public class GroupStudy implements WebTableUtils {
     }
 
     @Test (dependsOnMethods = {"smartBearLoginTest"})
-    public void smartBearGetTableInfoTest(){
-        System.out.println(smartBearPaymentInfo("US"));
+    public void smartBearGetPaymentInfoTest(){
+        smartBearPaymentInfo("Canada");
     }
 
     @Test

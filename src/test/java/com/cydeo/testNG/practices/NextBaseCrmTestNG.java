@@ -1,7 +1,7 @@
 package com.cydeo.testNG.practices;
 
 import com.cydeo.reusableMethods.base.TestBase;
-import com.cydeo.reusableMethods.methods.BrowserUtils;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.reusableMethods.pages.NextBaseCrmPage;
 import com.cydeo.utilities.ConfigurationReader;
 import org.testng.annotations.Test;

@@ -1,7 +1,7 @@
 package com.cydeo.day7_actionsWebTablesConfigReader;
 
 import com.cydeo.reusableMethods.base.TestBase;
-import com.cydeo.reusableMethods.methods.BrowserUtils;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.reusableMethods.methods.ReusableMethods;
 import com.cydeo.utilities.ConfigurationReader;
 import org.openqa.selenium.JavascriptExecutor;

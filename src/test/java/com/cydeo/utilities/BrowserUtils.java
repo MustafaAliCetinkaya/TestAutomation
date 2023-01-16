@@ -1,10 +1,9 @@
-package com.cydeo.reusableMethods.methods;
+package com.cydeo.utilities;
 
 /*
 In this class only general utility methods that are NOT related to some specific page.
  */
 
-import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;

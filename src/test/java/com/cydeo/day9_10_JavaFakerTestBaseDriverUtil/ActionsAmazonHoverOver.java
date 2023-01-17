@@ -21,7 +21,7 @@ public class ActionsAmazonHoverOver extends TestBaseBeforeClassAfterClass {
         WebElement language = driver.findElement(By.cssSelector("a.nav-a.nav-a-2.icp-link-style-2"));
         actions.moveToElement(language).pause(4000).perform();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 5; i++) {
             actions.sendKeys(Keys.DOWN).pause(1000).perform();
         }
 
@@ -29,14 +29,21 @@ public class ActionsAmazonHoverOver extends TestBaseBeforeClassAfterClass {
             actions.sendKeys(Keys.ENTER).pause(1000).perform();
         }*/
 
-        ((JavascriptExecutor)driver).executeScript("scroll(0,750)");
-        ReusableMethods.waitFor(4);
+        ((JavascriptExecutor)driver).executeScript("scroll(0,2500)");//Goes to the bottom
+        ReusableMethods.waitFor(5);
 
 
         WebElement bottomLanguageButton= driver.findElement(By.cssSelector("a.icp-button:nth-of-type(1)"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView()",bottomLanguageButton);
         actions.moveToElement(bottomLanguageButton);
-        ReusableMethods.waitFor(4);
+        ReusableMethods.waitFor(10);
+
+
+        for (int i = 1; i < 62; i++) {
+            WebElement allLinksOnThePage= driver.findElement(By.xpath("(//a[@class='nav_a'])["+i+"]"));
+            actions.moveToElement(allLinksOnThePage).pause(1000).perform();
+        }
+
 
 
     }

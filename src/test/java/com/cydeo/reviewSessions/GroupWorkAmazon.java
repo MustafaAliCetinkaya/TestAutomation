@@ -1,4 +1,4 @@
-package com.cydeo.selenium.practices;
+package com.cydeo.reviewSessions;
 
 import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.ConfigurationReader;

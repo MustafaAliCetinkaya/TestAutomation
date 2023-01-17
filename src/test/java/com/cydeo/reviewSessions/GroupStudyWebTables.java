@@ -1,4 +1,4 @@
-package com.cydeo.testNG.practices.tests;
+package com.cydeo.reviewSessions;
 
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.WebTableUtils;

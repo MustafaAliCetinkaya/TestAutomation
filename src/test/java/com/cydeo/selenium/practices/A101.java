@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.cydeo.reusableMethods.pages.CydeoPage.testAllLinksOnTheHomepage;
+import static com.cydeo.testNG.practices.pages.CydeoPage.testAllLinksOnTheHomepage;
 
 public class A101 extends TestBase {
     public static void main(String[] args) {

@@ -1,11 +1,11 @@
-package com.cydeo.testNG.practices;
+package com.cydeo.testNG.practices.tests;
 
 import com.cydeo.reusableMethods.methods.ReusableMethods;
-import com.cydeo.reusableMethods.pages.MigrosPage;
+import com.cydeo.testNG.practices.pages.MigrosPage;
 import com.cydeo.utilities.ConfigurationReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import static com.cydeo.reusableMethods.pages.CydeoPage.testAllLinksOnTheHomepage;
+import static com.cydeo.testNG.practices.pages.CydeoPage.testAllLinksOnTheHomepage;
 
 public class MigrosTestNG extends MigrosPage {
 

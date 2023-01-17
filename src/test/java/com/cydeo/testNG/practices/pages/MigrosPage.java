@@ -1,4 +1,4 @@
-package com.cydeo.reusableMethods.pages;
+package com.cydeo.testNG.practices.pages;
 
 import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.Driver;

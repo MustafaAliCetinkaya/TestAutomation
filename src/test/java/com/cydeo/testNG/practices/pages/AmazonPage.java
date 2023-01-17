@@ -1,4 +1,4 @@
-package com.cydeo.reusableMethods.pages;
+package com.cydeo.testNG.practices.pages;
 
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.Keys;

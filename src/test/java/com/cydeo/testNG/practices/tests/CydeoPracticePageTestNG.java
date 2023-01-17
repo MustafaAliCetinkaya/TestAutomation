@@ -1,6 +1,6 @@
-package com.cydeo.testNG.practices;
+package com.cydeo.testNG.practices.tests;
 
-import com.cydeo.reusableMethods.pages.CydeoPracticePage;
+import com.cydeo.testNG.practices.pages.CydeoPracticePage;
 import com.cydeo.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 

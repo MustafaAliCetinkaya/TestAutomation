@@ -1,7 +1,7 @@
-package com.cydeo.testNG.practices;
+package com.cydeo.testNG.practices.tests;
 
 import com.cydeo.reusableMethods.base.TestBaseBeforeClassAfterClass;
-import com.cydeo.reusableMethods.pages.FacebookPage;
+import com.cydeo.testNG.practices.pages.FacebookPage;
 import com.cydeo.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 

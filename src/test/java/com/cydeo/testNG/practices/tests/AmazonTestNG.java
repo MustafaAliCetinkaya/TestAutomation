@@ -1,6 +1,6 @@
-package com.cydeo.testNG.practices;
+package com.cydeo.testNG.practices.tests;
 
-import com.cydeo.reusableMethods.pages.AmazonPage;
+import com.cydeo.testNG.practices.pages.AmazonPage;
 import org.testng.annotations.Test;
 
 public class AmazonTestNG {

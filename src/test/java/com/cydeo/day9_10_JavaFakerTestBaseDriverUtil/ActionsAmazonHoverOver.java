@@ -44,7 +44,5 @@ public class ActionsAmazonHoverOver extends TestBaseBeforeClassAfterClass {
             actions.moveToElement(allLinksOnThePage).pause(1000).perform();
         }
 
-
-
     }
 }

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class GroupStudy implements WebTableUtils {
+public class GroupStudyWebTables implements WebTableUtils {
 
     @BeforeClass
     public static void setUp(){

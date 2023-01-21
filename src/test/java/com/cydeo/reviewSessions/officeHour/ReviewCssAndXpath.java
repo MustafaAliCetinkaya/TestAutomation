@@ -33,9 +33,6 @@ public class ReviewCssAndXpath {
 
           nth-of-type(index number)
 
-
-
-
           2, xpath locator
 
           1) absolute xpath -- start from the first element (which is html)
@@ -69,15 +66,6 @@ public class ReviewCssAndXpath {
             following-sibling::tagName
             preceding-sibling::tagName
          */
-
-
-
-
-
-
-
-
-
 
     }
 }

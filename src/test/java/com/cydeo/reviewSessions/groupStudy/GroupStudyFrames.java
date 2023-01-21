@@ -1,4 +1,4 @@
-package com.cydeo.reviewSessions;
+package com.cydeo.reviewSessions.groupStudy;
 
 import com.cydeo.reusableMethods.base.TestBaseBeforeClassAfterClass;
 import org.openqa.selenium.By;

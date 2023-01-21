@@ -1,4 +1,4 @@
-package com.cydeo.reviewSessions;
+package com.cydeo.reviewSessions.groupStudy;
 
 import com.cydeo.reusableMethods.base.TestBase;
 import com.cydeo.utilities.ConfigurationReader;

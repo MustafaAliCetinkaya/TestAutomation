@@ -1,4 +1,4 @@
-package com.cydeo.reviewSessions;
+package com.cydeo.reviewSessions.officeHour;
 
 import io.github.bonigarcia.wdm.*;
 import org.openqa.selenium.*;

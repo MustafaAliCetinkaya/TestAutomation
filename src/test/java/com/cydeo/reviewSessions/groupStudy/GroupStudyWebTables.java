@@ -1,4 +1,4 @@
-package com.cydeo.reviewSessions;
+package com.cydeo.reviewSessions.groupStudy;
 
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.WebTableUtils;

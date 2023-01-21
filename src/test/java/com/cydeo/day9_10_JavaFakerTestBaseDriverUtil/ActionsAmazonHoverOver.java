@@ -42,6 +42,7 @@ public class ActionsAmazonHoverOver extends TestBaseBeforeClassAfterClass {
         for (int i = 1; i < 62; i++) {
             WebElement allLinksOnThePage= driver.findElement(By.xpath("(//a[@class='nav_a'])["+i+"]"));
             actions.moveToElement(allLinksOnThePage).pause(1000).perform();
+            System.out.println(i+". link hovered over is : "+allLinksOnThePage.getText());
         }
 
     }

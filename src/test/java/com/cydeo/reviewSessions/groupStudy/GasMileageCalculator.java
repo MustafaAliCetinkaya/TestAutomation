@@ -74,6 +74,5 @@ public class GasMileageCalculator extends TestBase {
         String expectedResult="23.44 mpg";
         Assert.assertEquals(actualResult,expectedResult);*/
 
-
     }
 }

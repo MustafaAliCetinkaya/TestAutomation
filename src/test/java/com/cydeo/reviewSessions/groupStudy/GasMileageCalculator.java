@@ -5,6 +5,7 @@ import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,6 +22,8 @@ public class GasMileageCalculator extends TestBase {
         Assert.assertEquals(actualTitle, expectedTitle, "Title test is failed");
 
         driver.findElement(By.xpath("//h1")).isDisplayed();
+
+        Actions actions = new Actions(driver);
 
         WebElement odometer = Driver.getDriver().findElement(By.xpath("//input[@id='mucodreading']"));
         actions.click(odometer).keyDown(Keys.COMMAND)

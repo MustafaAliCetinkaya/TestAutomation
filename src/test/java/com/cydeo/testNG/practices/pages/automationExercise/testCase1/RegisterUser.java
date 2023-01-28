@@ -72,7 +72,9 @@ public class RegisterUser {
         enterAccountInfo.isDisplayed();
 
         WebElement genderRadioButton = driver.findElement(By.cssSelector("input#id_gender1"));
-        actions.click(genderRadioButton)
+        WebElement password = driver.findElement(By.cssSelector("input#password"));
+        actions.click(genderRadioButton).perform();
+        actions.click(password)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(faker.internet().password())

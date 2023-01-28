@@ -47,10 +47,6 @@ public class C02_WebTables extends TestBase {
         driver.findElement(By.xpath("//*[@id='Password']")).sendKeys("Manager1!", Keys.ENTER);
          */
 
-
-
     }
-
-
 
 }

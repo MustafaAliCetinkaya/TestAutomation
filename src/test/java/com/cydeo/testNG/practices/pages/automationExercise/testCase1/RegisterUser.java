@@ -1,15 +1,13 @@
 package com.cydeo.testNG.practices.pages.automationExercise.testCase1;
 
+import com.cydeo.reusableMethods.base.TestBaseBeforeClassAfterClass;
+import com.cydeo.utilities.ConfigurationReader;
 import com.github.javafaker.Faker;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
-import java.util.concurrent.TimeUnit;
+import org.testng.annotations.Test;
 
 /*Test Case 1: Register User
 1. Launch browser
@@ -30,14 +28,11 @@ import java.util.concurrent.TimeUnit;
 16. Verify that 'Logged in as username' is visible
 17. Click 'Delete Account' button
 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button*/
-public class RegisterUser {
-    public static void main(String[] args) {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+public class RegisterUser extends TestBaseBeforeClassAfterClass {
+    @Test
+    public void loginTest() {
 
-        driver.get("http://automationexercise.com");
+        driver.get(ConfigurationReader.getProperty("urlExercise"));
 
         String expectedTitle = "Automation Exercise";
         if (driver.getTitle().equals(expectedTitle)) {
@@ -75,8 +70,6 @@ public class RegisterUser {
         WebElement password = driver.findElement(By.cssSelector("input#password"));
         actions.click(genderRadioButton).perform();
         actions.click(password)
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.TAB)
                 .sendKeys(faker.internet().password())
                 .sendKeys(Keys.TAB)
                 .sendKeys("" + faker.number().numberBetween(1, 31))
@@ -86,11 +79,11 @@ public class RegisterUser {
                 .sendKeys("" + faker.number().numberBetween(1900, 2021))
                 .sendKeys(Keys.TAB) .click().pause(2000)
                 .sendKeys(Keys.TAB).click().pause(2000)
-                .sendKeys(Keys.TAB).pause(2000)
+                .sendKeys(Keys.TAB).click().pause(2000)
                 .sendKeys(faker.name().firstName())
-                .sendKeys(Keys.TAB).pause(2000)
+                .sendKeys(Keys.TAB).click().pause(2000)
                 .sendKeys(faker.name().lastName())
-                .sendKeys(Keys.TAB).pause(2000)
+                .sendKeys(Keys.TAB).click().pause(2000)
                 .sendKeys(faker.company().name())
                 .sendKeys(Keys.TAB).pause(2000)
                 .sendKeys(faker.address().fullAddress())

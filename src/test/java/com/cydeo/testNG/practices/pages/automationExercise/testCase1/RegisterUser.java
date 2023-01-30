@@ -66,9 +66,14 @@ public class RegisterUser extends TestBaseBeforeClassAfterClass {
         WebElement enterAccountInfo = driver.findElement(By.xpath("(//h2)[1]"));
         enterAccountInfo.isDisplayed();
 
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='aswift_5']")));
+        driver.findElement(By.cssSelector("div#cbb")).click();
+        driver.switchTo().parentFrame();
+
         WebElement genderRadioButton = driver.findElement(By.cssSelector("input#id_gender1"));
-        WebElement password = driver.findElement(By.cssSelector("input#password"));
         actions.click(genderRadioButton).perform();
+
+        WebElement password = driver.findElement(By.cssSelector("input#password"));
         actions.click(password)
                 .sendKeys(faker.internet().password())
                 .sendKeys(Keys.TAB)

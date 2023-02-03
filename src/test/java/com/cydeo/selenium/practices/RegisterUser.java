@@ -1,4 +1,4 @@
-package com.cydeo.testNG.practices.pages.automationExercise.testCase1;
+package com.cydeo.selenium.practices;
 
 import com.cydeo.reusableMethods.base.TestBaseBeforeClassAfterClass;
 import com.cydeo.utilities.ConfigurationReader;

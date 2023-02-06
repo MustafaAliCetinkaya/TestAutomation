@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 
 public class POMPractices {
 
-    LibraryLoginPage libraryLoginPage;
+    LibraryLoginPage libraryLoginPage;//If we instantiate the object at the class level, first method will be executed without ant problem. But after driver is closed it will throw error for other tests and they will not be run. Because there is not a relation/connection between driver and object after close the driver!
 
     @BeforeMethod
     public void setupMethod(){
         Driver.getDriver().get("https://library1.cydeo.com/");
-        libraryLoginPage = new LibraryLoginPage();
+        libraryLoginPage = new LibraryLoginPage();//If we instantiate the object at the class level, first method will be executed without ant problem. But after driver is closed it will throw error for other tests and they will not be run. Because there is not a relation/connection between driver and object after close the driver!
     }
 
     @Test

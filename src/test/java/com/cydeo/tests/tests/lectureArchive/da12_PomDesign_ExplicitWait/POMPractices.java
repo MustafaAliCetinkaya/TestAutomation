@@ -1,6 +1,6 @@
 package com.cydeo.tests.tests.lectureArchive.da12_PomDesign_ExplicitWait;
 
-import com.cydeo.tests.tests.lectureArchive.selenium.day3_LocatorsFirstSixOnes.LibraryLoginPage;
+import com.cydeo.pages.LibraryLoginPage;
 import com.cydeo.utilities.Driver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -23,7 +23,7 @@ public class POMPractices {
         //2- Go to: https://library1.cydeo.com/
         //3- Do not enter any information
         //4- Click to “Sign in” button
-        libraryLoginPage = new LibraryLoginPage();
+
         libraryLoginPage.signInButton.click();
 
         //5- Verify expected error is displayed:
@@ -39,7 +39,7 @@ public class POMPractices {
         //1- Open a Chrome browser
         //2- Go to: https://library1.cydeo.com/
         //3- Enter invalid email format
-        libraryLoginPage = new LibraryLoginPage();
+
         libraryLoginPage.inputUsername.sendKeys("somethingwrong");
 
         libraryLoginPage.signInButton.click();
@@ -58,7 +58,7 @@ public class POMPractices {
         //1- Open a Chrome browser
         //2- Go to: https://library1.cydeo.com
         //3- Enter incorrect username or incorrect password
-        libraryLoginPage = new LibraryLoginPage();
+
         libraryLoginPage.inputUsername.sendKeys("wrong@username.com");
         libraryLoginPage.inputPassword.sendKeys("wrongpassword");
 

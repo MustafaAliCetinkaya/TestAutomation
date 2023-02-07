@@ -55,8 +55,8 @@ public class ExplicitWaitPractices {
     public void enable_button_test(){
         //3- Click to “Enable” button
 
-        //System.out.println("dynamicControlsPage.inputBox.isEnabled() = "
-        //        + dynamicControlsPage.inputBox.isEnabled());
+        System.out.println("dynamicControlsPage.inputBox.isEnabled() = "
+                + dynamicControlsPage.inputBox.isEnabled());
 
         dynamicControlsPage.enableButton.click();
 

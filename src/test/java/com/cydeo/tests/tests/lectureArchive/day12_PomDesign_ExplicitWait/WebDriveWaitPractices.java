@@ -1,4 +1,4 @@
-package com.cydeo.tests.tests.lectureArchive.da12_PomDesign_ExplicitWait;
+package com.cydeo.tests.tests.lectureArchive.day12_PomDesign_ExplicitWait;
 
 import com.cydeo.pages.DynamicLoad1Page;
 import com.cydeo.pages.DynamicLoad7Page;

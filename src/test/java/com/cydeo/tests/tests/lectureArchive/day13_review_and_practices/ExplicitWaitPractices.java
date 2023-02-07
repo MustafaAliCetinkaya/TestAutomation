@@ -18,7 +18,7 @@ public class ExplicitWaitPractices {
     public void setupMethod(){
 
         Driver.getDriver().get("https://practice.cydeo.com/dynamic_controls");
-        dynamicControlsPage = new DynamicControlsPage();
+        dynamicControlsPage = new DynamicControlsPage();//Object will be recreated and reassigned for each driver session (for each method)
 
     }
 
@@ -34,8 +34,8 @@ public class ExplicitWaitPractices {
 
         BrowserUtils.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
 
-        //5- Verify:
-        //a. Checkbox is not displayed
+        // Verify:
+        // Checkbox is not displayed
 
         try {
             //assertFalse method will pass the test if the boolean value returned is: false

@@ -70,7 +70,8 @@ public class BrowserUtils {
         //Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.invisibilityOf(webElement));
-    }
+    }//If we use the implicit and explicit wait it may cause some problems. So firstly we close the implicit way then run the explicit one.
+    //After the explicit duration , we can turn on again the implicit wait.
 
 
 }

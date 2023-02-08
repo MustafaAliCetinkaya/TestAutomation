@@ -21,7 +21,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
 
         //6. Verify title is as expected:
         //Expected: Portal
-        BrowserUtilities.verifyTitle(driver, "(2) Portal");
+        BrowserUtilities.verifyTitle( "(2) Portal");
     }
     @Test
     public void crm_login_test_1(){
@@ -33,7 +33,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
 
         //6. Verify title is as expected:
         //Expected: Portal
-        BrowserUtilities.verifyTitle(driver, "(1) My tasks");
+        BrowserUtilities.verifyTitle( "(1) My tasks");
     }
 
     @Test
@@ -48,7 +48,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
         //6. Verify title is as expected:
         //Expected: Portal
         //BrowserUtils.sleep(2);
-        BrowserUtilities.verifyTitle(driver, "(1) Portal");
+        BrowserUtilities.verifyTitle( "(1) Portal");
 
     }
 }

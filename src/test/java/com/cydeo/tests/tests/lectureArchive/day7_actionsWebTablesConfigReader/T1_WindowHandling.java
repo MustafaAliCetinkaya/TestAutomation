@@ -2,8 +2,8 @@ package com.cydeo.tests.tests.lectureArchive.day7_actionsWebTablesConfigReader;
 
 import com.cydeo.tests.base.TestBase;
 import com.cydeo.utilities.BrowserUtilities;
-import com.cydeo.utilities.miscellaneous.ReusableMethods;
 import com.cydeo.utilities.ConfigurationReader;
+import com.cydeo.utilities.miscellaneous.ReusableMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
@@ -21,7 +21,7 @@ public class T1_WindowHandling extends TestBase {
         ((JavascriptExecutor) driver).executeScript("window.open('https://facebook.com','_blank');");
 
         //4. Create a logic to switch to the tab where Etsy.com is open
-        BrowserUtilities.switchWindowAndVerify(driver, "etsy", "Etsy");
+        BrowserUtilities.switchWindowAndVerify( "etsy", "Etsy");
 
 
     }

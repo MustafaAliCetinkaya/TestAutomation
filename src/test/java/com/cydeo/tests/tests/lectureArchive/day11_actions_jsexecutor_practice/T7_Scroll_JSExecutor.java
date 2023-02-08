@@ -1,6 +1,6 @@
 package com.cydeo.tests.tests.lectureArchive.day11_actions_jsexecutor_practice;
 
-import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,11 +23,11 @@ public class T7_Scroll_JSExecutor {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
         //3- Scroll down to “Cydeo” link
-        BrowserUtils.sleep(2);
+        BrowserUtilities.sleep(2);
         js.executeScript("arguments[0].scrollIntoView(true)", cydeoLink);
 
         //4- Scroll up to “Home” link
-        BrowserUtils.sleep(2);
+        BrowserUtilities.sleep(2);
         //js.executeScript("arguments[1].scrollIntoView(true)", cydeoLink, homeLink);
         js.executeScript("arguments[0].scrollIntoView(true)", homeLink);
 

@@ -1,7 +1,7 @@
 package com.cydeo.tests.tests.lectureArchive.day13_review_and_practices;
 
 import com.cydeo.pages.DynamicControlsPage;
-import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
@@ -32,7 +32,7 @@ public class ExplicitWaitPractices {
 //        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 //        wait.until(ExpectedConditions.invisibilityOf(dynamicControlsPage.loadingBar));
 
-        BrowserUtils.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
+        BrowserUtilities.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
 
         // Verify:
         // Checkbox is not displayed
@@ -65,7 +65,7 @@ public class ExplicitWaitPractices {
 
         //4- Wait until “loading bar disappears”
         //Calling our ExplicitWait utility method to wait loadingBar to disappear
-        BrowserUtils.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
+        BrowserUtilities.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
 
         System.out.println("dynamicControlsPage.inputBox.isEnabled() = "
                 + dynamicControlsPage.inputBox.isEnabled());

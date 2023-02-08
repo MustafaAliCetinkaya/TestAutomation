@@ -1,18 +1,18 @@
 package com.cydeo.utilities;
 
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class BrowserUtils {
+public class BrowserUtilities {
 
     /*
 This method will accept int (in seconds) and execute Thread.sleep
@@ -256,7 +256,7 @@ for given duration
      */
     public static void verifyElementDisplayed(By by) {
         try {
-            Assert.assertTrue("Element not visible: " + by, Driver.getDriver().findElement(by).isDisplayed());
+            Assert.assertTrue(Driver.getDriver().findElement(by).isDisplayed(), "Element not visible: " + by);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + by);
@@ -272,7 +272,7 @@ for given duration
      */
     public static void verifyElementNotDisplayed(By by) {
         try {
-            Assert.assertFalse("Element should not be visible: " + by, Driver.getDriver().findElement(by).isDisplayed());
+            Assert.assertFalse(Driver.getDriver().findElement(by).isDisplayed(), "Element should not be visible: " + by);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
 
@@ -288,7 +288,7 @@ for given duration
      */
     public static void verifyElementDisplayed(WebElement element) {
         try {
-            Assert.assertTrue("Element not visible: " + element, element.isDisplayed());
+            Assert.assertTrue(element.isDisplayed(), "Element not visible: " + element);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + element);

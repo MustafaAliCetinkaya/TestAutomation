@@ -1,6 +1,6 @@
 package com.cydeo.tests.tests.lectureArchive.selenium.practices;
 
-import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.BrowserUtilities;
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -29,7 +29,7 @@ public class ToDoMvc {
             driver.findElement(By.cssSelector("input#new-todo"))
                     .sendKeys(faker.chuckNorris().fact().replaceAll("Chuck Norris", "Mustafa" + Keys.ENTER));
 
-            BrowserUtils.sleep(2);
+            BrowserUtilities.sleep(2);
         }
 
         //Second TODO item is selected, cleared and reassigned

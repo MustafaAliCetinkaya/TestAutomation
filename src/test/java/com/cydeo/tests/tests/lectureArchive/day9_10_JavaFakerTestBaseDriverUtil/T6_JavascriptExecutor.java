@@ -1,6 +1,6 @@
 package com.cydeo.tests.tests.lectureArchive.day9_10_JavaFakerTestBaseDriverUtil;
 
-import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
@@ -21,14 +21,14 @@ public class T6_JavascriptExecutor {
 
         //a. 750 pixels down 10 times.
         for (int i = 0; i < 10; i++) {
-            BrowserUtils.sleep(1);
+            BrowserUtilities.sleep(1);
             js.executeScript("window.scrollBy(0,750)");
         }
 
 
         //b. 750 pixels up 10 times
         for (int i = 0; i < 10; i++) {
-            BrowserUtils.sleep(1);
+            BrowserUtilities.sleep(1);
             js.executeScript("window.scrollBy(0,-750)");
         }
 

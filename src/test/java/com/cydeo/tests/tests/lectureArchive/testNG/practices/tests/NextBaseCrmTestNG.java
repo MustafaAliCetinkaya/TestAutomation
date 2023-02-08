@@ -1,7 +1,7 @@
 package com.cydeo.tests.tests.lectureArchive.testNG.practices.tests;
 
 import com.cydeo.tests.base.TestBase;
-import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.tests.tests.lectureArchive.testNG.practices.pages.NextBaseCrmPage;
 import com.cydeo.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
@@ -21,7 +21,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
 
         //6. Verify title is as expected:
         //Expected: Portal
-        BrowserUtils.verifyTitle(driver, "(2) Portal");
+        BrowserUtilities.verifyTitle(driver, "(2) Portal");
     }
     @Test
     public void crm_login_test_1(){
@@ -33,7 +33,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
 
         //6. Verify title is as expected:
         //Expected: Portal
-        BrowserUtils.verifyTitle(driver, "(1) My tasks");
+        BrowserUtilities.verifyTitle(driver, "(1) My tasks");
     }
 
     @Test
@@ -48,7 +48,7 @@ public class NextBaseCrmTestNG extends TestBase implements NextBaseCrmPage {
         //6. Verify title is as expected:
         //Expected: Portal
         //BrowserUtils.sleep(2);
-        BrowserUtils.verifyTitle(driver, "(1) Portal");
+        BrowserUtilities.verifyTitle(driver, "(1) Portal");
 
     }
 }

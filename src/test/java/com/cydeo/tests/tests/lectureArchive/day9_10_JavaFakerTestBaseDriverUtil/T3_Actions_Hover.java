@@ -1,6 +1,6 @@
 package com.cydeo.tests.tests.lectureArchive.day9_10_JavaFakerTestBaseDriverUtil;
 
-import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -28,7 +28,7 @@ public class T3_Actions_Hover {
         Actions actions = new Actions(Driver.getDriver());
 
         //2. Hover over to first image
-        BrowserUtils.sleep(2);
+        BrowserUtilities.sleep(2);
         actions.moveToElement(img1).perform();
 
         //3. Assert:
@@ -36,7 +36,7 @@ public class T3_Actions_Hover {
         Assert.assertTrue(user1.isDisplayed());
 
         //4. Hover over to second image
-        BrowserUtils.sleep(2);
+        BrowserUtilities.sleep(2);
         actions.moveToElement(img2).perform();
 
         //5. Assert:
@@ -44,7 +44,7 @@ public class T3_Actions_Hover {
         Assert.assertTrue(user2.isDisplayed());
 
         //6. Hover over to third image
-        BrowserUtils.sleep(2);
+        BrowserUtilities.sleep(2);
         actions.moveToElement(img3).perform();
 
         //7. Confirm:

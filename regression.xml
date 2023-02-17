@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression1">
+    <test name="DataProvider" >
+        <classes>
+            <class name="com.cydeo.tests.tests.lectureArchive.testNG.practices.tests.DataProviderTest" />
+        </classes>
+    </test>
+
+    <test name="Regression2">
+        <classes>
+            <class name="com.cydeo.tests.tests.lectureArchive.day7_actionsWebTablesConfigReader.C01_WebTables"/>
+            <class name="com.cydeo.tests.tests.lectureArchive.day7_actionsWebTablesConfigReader.T1_WindowHandling"/>
+        </classes>
+    </test>
+
+    <test name="Regression3"   >
+        <packages>
+            <package name="com.cydeo.tests.tests.lectureArchive.day11_actions_jsexecutor_practice" />
+        </packages>
+    </test>
+
+</suite>

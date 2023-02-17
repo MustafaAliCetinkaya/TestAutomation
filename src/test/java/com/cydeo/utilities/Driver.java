@@ -64,11 +64,8 @@ public class Driver {
                     break;
 
                 default:
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
+                    System.out.println("Unknown browser type: "+browserType);
+                    driver=null;
             }
         }
 
